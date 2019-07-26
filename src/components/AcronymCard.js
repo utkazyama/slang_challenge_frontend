@@ -1,0 +1,15 @@
+import React, {Component} from 'react';
+
+class AcronymCard extends Component {
+
+  render(){
+    return (
+      <div className="card">
+        <div className="phrase-card-front">
+          <h3 className="acr-text">{this.props.slang.acronym}</h3>
+        </div>
+      </div>
+    )
+  }
+}
+export default AcronymCard;

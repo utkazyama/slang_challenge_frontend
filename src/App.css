@@ -1,33 +1,95 @@
-.App {
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.text {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.hint {
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.acr-text {
+  text-align: center;
+  font-size: 0.9em;
+}
+
+#root, #slang-showcase {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#slang-showcase {
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 750px;
+  height: 350px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card {
+  width: 150px;
+  height: 150px;
+  margin: 12.5px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover {
+  transform: scale(1.05)
+}
+
+.card:active {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+
+
+.phrase-card-front, .phrase-card-back {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  backface-visibility: hidden;
+  background-size: cover;
+}
+
+.phrase-card-front {
+  filter: grayscale(100%);
+  transition-duration: 1s;
+  box-shadow: 5px 5px 10px;
+  box-shadow: 5px 5px 10px rgb(55, 55, 55, 0.85);
+
+}
+
+.phrase-card-front:hover {
+  filter: grayscale(0%);
+}
+
+.phrase-card-back {
+  transform: rotateY(180deg);
+  box-shadow: 5px 5px 10px rgb(55, 55, 55, 0.85);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+span {
+  border: none;
+  width: 80%;
+  height: 0px;
+  border: 1px solid black;
+  color: #000000;
+}
+
+.zero {
+  width: 148px;
+  height: 33px;
 }
