@@ -10,8 +10,7 @@ class GameBoard extends Component {
     this.state = {
       slangs: [],
       selected: [],
-      score: 0,
-      boardedCards: 6
+      score: 0
     }
   }
 
@@ -24,7 +23,7 @@ class GameBoard extends Component {
   }
 
   filterCorrect = (selectedId) => {
-    return this.state.slangs.filter(slang => slang.id !== selectedId);
+    return this.state.slangs.filter(slang => slang.id === selectedId);
   }
 
   handleSelect = (e) => {
@@ -46,7 +45,8 @@ class GameBoard extends Component {
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
-        score: currentScore - 20
+        score: currentScore - 20,
+        selected:[]
       })
     }
   }
@@ -57,23 +57,49 @@ class GameBoard extends Component {
     })
   }
 
+
+  handleColor = (e) => {
+    var card = e.target.parentNode;
+    if (card.className === "card"){
+      if (card.style.border === "4px solid green"){
+        card.style.border = "none";
+        this.handleUnSelect();
+      } else {
+      card.style.border = "4px solid green";
+      card.style.borderRadius = "5px";
+      this.handleSelect(e)
+      }
+    } else if(card.parentNode.className === "card") {
+      if (card.parentNode.style.border === "4px solid green"){
+        card.parentNode.style.border = "none";
+        this.handleUnSelect();
+      } else {
+      card.parentNode.style.border = "4px solid green";
+      card.parentNode.style.borderRadius = "5px";
+      this.handleSelect(e)
+      }
+    }
+  }
+
+
   renderCards = () => {
-    let maximumCard = this.state.boardedCards;
-    return this.state.slangs.slice(0, maximumCard).map(slang => {
+
+    return this.state.slangs.slice(0, 6).map(slang => {
       return < Card
       handleSelect={this.handleSelect}
       handleUnSelect={this.handleUnSelect}
+      handleColor={this.handleColor}
       slang={slang} key={slang.id}
       />
     })
   }
 
   renderAcronym = () => {
-    let maximumCard = this.state.boardedCards;
-    return this.state.slangs.slice(0, maximumCard).map(slang => {
+    return this.state.slangs.slice(0, 6).map(slang => {
       return < AcronymCard
       handleSelect={this.handleSelect}
       handleUnSelect={this.handleUnSelect}
+      handleColor={this.handleColor}
       slang={slang} key={slang.id} />
     })
   }
