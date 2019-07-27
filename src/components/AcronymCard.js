@@ -7,6 +7,7 @@ class AcronymCard extends Component {
     if (card.className === "card"){
       if (card.style.border === "4px solid green"){
         card.style.border = "none";
+        this.props.handleUnSelect();
       } else {
       card.style.border = "4px solid green";
       card.style.borderRadius = "5px";
@@ -15,6 +16,7 @@ class AcronymCard extends Component {
     } else if(card.parentNode.className === "card") {
       if (card.parentNode.style.border === "4px solid green"){
         card.parentNode.style.border = "none";
+        this.props.handleUnSelect();
       } else {
       card.parentNode.style.border = "4px solid green";
       card.parentNode.style.borderRadius = "5px";
