@@ -8,7 +8,7 @@ class AcronymCard extends Component {
     return (
       <div id= {this.props.slang.id} className="card" onClick={(e) => this.props.handleColor(e)} >
         <div className="phrase-card-front">
-          <h1>{this.props.slang.id}</h1>
+          {this.props.slang.id}
           <h3 className="acr-text">{this.props.slang.acronym}</h3>
         </div>
       </div>

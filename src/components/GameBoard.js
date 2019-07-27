@@ -23,7 +23,8 @@ class GameBoard extends Component {
   }
 
   filterCorrect = (selectedId) => {
-    return this.state.slangs.filter(slang => slang.id === selectedId);
+    let remain = this.state.slangs
+    return  remain.filter(slang => slang.id != selectedId)
   }
 
   handleSelect = (e) => {
@@ -35,12 +36,10 @@ class GameBoard extends Component {
       })
     }else if (this.state.selected === selectedId){
       let currentScore = this.state.score
-      let maximumCard = this.state.boardedCards;
       this.setState({
         selected: [],
         score: currentScore + 10,
-        slangs: filtered,
-        boardedCards: maximumCard - 1
+        slangs: filtered
       })
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
