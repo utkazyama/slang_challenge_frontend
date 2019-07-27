@@ -4,7 +4,7 @@ import PhraseCardBack from './PhraseCardBack.js';
 
 class Card extends Component {
 
-  handleSelect = (e) => {
+  handleColor = (e) => {
     var card = e.target.parentNode;
     if (card.className === "card"){
       if (card.style.border === "4px solid green"){
@@ -12,6 +12,7 @@ class Card extends Component {
       } else {
       card.style.border = "4px solid green";
       card.style.borderRadius = "5px";
+      this.props.handleSelect(e)
       }
     } else if(card.parentNode.className === "card" && e.target.className !== "hint" && e.target.className !== "flip-back") {
       if (card.parentNode.style.border === "4px solid green"){
@@ -19,13 +20,14 @@ class Card extends Component {
       } else {
       card.parentNode.style.border = "4px solid green";
       card.parentNode.style.borderRadius = "5px";
+      this.props.handleSelect(e)
       }
     }
   }
 
   render(){
     return (
-      <div className="card" onClick={(e) => this.handleSelect(e)} >
+      <div id= {this.props.slang.id} className="card" onClick={(e) => this.handleColor(e)} >
         < PhraseCardFront slang={this.props.slang} />
         < PhraseCardBack slang={this.props.slang} />
       </div>

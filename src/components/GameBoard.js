@@ -9,7 +9,9 @@ class GameBoard extends Component {
   constructor(props){
     super(props);
     this.state = {
-      slangs: []
+      slangs: [],
+      selected: [],
+      score: 0
     }
   }
 
@@ -21,15 +23,32 @@ class GameBoard extends Component {
     }))
   }
 
+
+  handleSelect = (e) => {
+    let selectedId = e.target.parentNode.id
+    if (this.state.selected.length === 0){
+      this.setState({
+        selected: selectedId
+      })
+    }else if (this.state.selected === selectedId){
+      let currentScore = this.state.score
+      this.setState({
+        selected: [],
+        score: currentScore + 10
+      })
+    }
+  }
+
   renderCards = () => {
+
     return this.state.slangs.slice(1, 7).map(slang => {
-      return < Card slang={slang} key={slang.id} />
+      return < Card handleSelect = {this.handleSelect} slang={slang} key={slang.id} />
     })
   }
 
   renderAcronym = () => {
     return this.state.slangs.slice(1, 7).map(slang => {
-      return < AcronymCard slang={slang} key={slang.id} />
+      return < AcronymCard handleSelect = {this.handleSelect} slang={slang} key={slang.id} />
     })
   }
 
@@ -37,6 +56,7 @@ class GameBoard extends Component {
   render(){
     return (
       <div>
+       Score: {this.state.score}
         <div id="slang-showcase">
           {this.renderCards()}
           {this.renderAcronym()}
