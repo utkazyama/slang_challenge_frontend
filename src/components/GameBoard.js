@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import AcronymCard from './AcronymCard.js'
+import FinishPage from './FinishPage.js'
 import Card from './Card.js';
 
 const API = 'https://slang-challenge-backend.herokuapp.com/cards';
@@ -136,16 +137,20 @@ class GameBoard extends Component {
   render(){
     return (
       <div>
-        <div>
-          Timer: {this.state.timer}
-          <br />
-          Score: {this.state.score}
-        </div>
+         {this.state.timer === 0 ? < FinishPage score={this.state.score}/> :
+           <div>
+            <div>
+              Timer: {this.state.timer}
+              <br />
+              Score: {this.state.score}
+            </div>
 
-        <div id="slang-showcase">
-          {this.renderCards()}
-          {this.renderAcronym()}
-        </div>
+            <div id="slang-showcase">
+              {this.renderCards()}
+              {this.renderAcronym()}
+            </div>
+          </div>
+        }
       </div>
     )
   }
