@@ -9,6 +9,7 @@ class Card extends Component {
     if (card.className === "card"){
       if (card.style.border === "4px solid green"){
         card.style.border = "none";
+        this.props.handleUnSelect();
       } else {
       card.style.border = "4px solid green";
       card.style.borderRadius = "5px";
@@ -17,6 +18,7 @@ class Card extends Component {
     } else if(card.parentNode.className === "card" && e.target.className !== "hint" && e.target.className !== "flip-back") {
       if (card.parentNode.style.border === "4px solid green"){
         card.parentNode.style.border = "none";
+        this.props.handleUnSelect();
       } else {
       card.parentNode.style.border = "4px solid green";
       card.parentNode.style.borderRadius = "5px";
