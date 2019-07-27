@@ -10,8 +10,21 @@ class GameBoard extends Component {
     this.state = {
       slangs: [],
       selected: [],
-      score: 0
+      score: 0,
+      timer: 30
     }
+  }
+
+  countTimer = () => {
+    let remainTime = setInterval(() => {
+      if (this.state.timer > 0){
+      this.setState({
+        timer: this.state.timer - 1
+      })
+    } else {
+        clearInterval(remainTime)
+      }
+    }, 1000)
   }
 
   componentDidMount = () => {
@@ -20,6 +33,7 @@ class GameBoard extends Component {
     .then(slangs => this.setState({
       slangs: slangs
     }))
+    this.countTimer()
   }
 
   filterCorrect = (selectedId) => {
@@ -119,7 +133,12 @@ class GameBoard extends Component {
   render(){
     return (
       <div>
-       Score: {this.state.score}
+        <div>
+          Timer: {this.state.timer}
+          <br />
+          Score: {this.state.score}
+        </div>
+
         <div id="slang-showcase">
           {this.renderCards()}
           {this.renderAcronym()}
