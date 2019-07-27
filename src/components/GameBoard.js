@@ -24,7 +24,7 @@ class GameBoard extends Component {
   }
 
   filterCorrect = (selectedId) => {
-    return this.state.slangs.filter(slang => slang.id != selectedId);
+    return this.state.slangs.filter(slang => slang.id !== selectedId);
   }
 
   handleSelect = (e) => {
