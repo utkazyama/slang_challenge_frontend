@@ -23,13 +23,13 @@ class GameBoard extends Component {
 
   renderCards = () => {
     return this.state.slangs.slice(1, 7).map(slang => {
-      return < Card slang={slang} />
+      return < Card slang={slang} key={slang.id} />
     })
   }
 
   renderAcronym = () => {
     return this.state.slangs.slice(1, 7).map(slang => {
-      return < AcronymCard slang={slang} />
+      return < AcronymCard slang={slang} key={slang.id} />
     })
   }
 
@@ -41,7 +41,6 @@ class GameBoard extends Component {
           {this.renderCards()}
           {this.renderAcronym()}
         </div>
-
       </div>
     )
   }

@@ -8,9 +8,9 @@ function App() {
       <header>
       </header>
 
-        <body>
+        <div>
           < GameBoard />
-        </body>
+        </div>
     </div>
   );
 }

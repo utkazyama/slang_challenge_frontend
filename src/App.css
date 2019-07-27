@@ -12,7 +12,8 @@ body, html, #root {
 }
 
 .hint {
-  align-items: center;
+  text-align: center;
+  margin: 20px 50px;
 }
 
 .acr-text {
@@ -42,14 +43,8 @@ body, html, #root {
 }
 
 .card:hover {
-  transform: scale(1.05)
+  transform: scale(1.02)
 }
-
-.card:active {
-  transform: rotateY(180deg) scale(1.05);
-}
-
-
 
 .phrase-card-front, .phrase-card-back {
   position: absolute;
@@ -64,7 +59,6 @@ body, html, #root {
   transition-duration: 1s;
   box-shadow: 5px 5px 10px;
   box-shadow: 5px 5px 10px rgb(55, 55, 55, 0.85);
-
 }
 
 .phrase-card-front:hover {
@@ -79,14 +73,6 @@ body, html, #root {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-}
-
-span {
-  border: none;
-  width: 80%;
-  height: 0px;
-  border: 1px solid black;
-  color: #000000;
 }
 
 .zero {
