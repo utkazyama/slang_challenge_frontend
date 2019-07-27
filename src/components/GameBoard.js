@@ -11,7 +11,8 @@ class GameBoard extends Component {
       slangs: [],
       selected: [],
       score: 0,
-      timer: 30
+      timer: 30,
+      initial: []
     }
   }
 
@@ -45,8 +46,10 @@ class GameBoard extends Component {
     let selectedId = e.target.parentNode.id
     let filtered = this.filterCorrect(selectedId);
     if (this.state.selected.length === 0){
+      let initial = e.target.parentNode
       this.setState({
-        selected: selectedId
+        selected: selectedId,
+        initial: initial
       })
     }else if (this.state.selected === selectedId){
       let currentScore = this.state.score
@@ -58,7 +61,7 @@ class GameBoard extends Component {
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
-        score: currentScore - 100
+        score: currentScore - 10
       })
       this.changeToRed(e);
     }
@@ -72,7 +75,7 @@ class GameBoard extends Component {
   changeToRed = (e) => {
     var card = e.target.parentNode;
     const id = this.state.selected;
-    const choosenCard = document.getElementById(id);
+    const choosenCard = this.state.initial
 
     choosenCard.style.border = "4px solid red";
     choosenCard.style.borderRadius = "5px";
