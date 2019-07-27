@@ -13,7 +13,7 @@ class PhraseCardBack extends Component {
     return (
       <div className="phrase-card-back" style={{backgroundImage: `url(${this.props.slang.img_url})`}}>
         <h3 className="text">{this.props.slang.hint}</h3>
-        <button onClick={(e) => this.flipToFront(e)} >Flip back</button>
+        <button className="flip-back" onClick={(e) => this.flipToFront(e)} >Flip back</button>
       </div>
     )
   }
