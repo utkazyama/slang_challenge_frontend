@@ -13,8 +13,10 @@ class PhraseCardFront extends Component {
     return (
       <div className="phrase-card-front">
        {this.props.slang.id}
+
         <h3 className="text">{this.props.slang.phrase}</h3>
         <button className="hint" onClick={(e) => this.flipToBack(e)} >hint</button>
+
       </div>
     )
   }

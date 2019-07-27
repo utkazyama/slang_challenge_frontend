@@ -44,10 +44,26 @@ class GameBoard extends Component {
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
-        score: currentScore - 20,
-        selected:[]
+        score: currentScore - 100
       })
+      this.changeToRed(e);
     }
+  }
+
+  changeToRed = (e) => {
+    var card = e.target.parentNode;
+    const id = this.state.selected;
+    var choosenCard = <Card ref={id}/>
+    console.log(choosenCard);
+    card.style.border = "4px solid red";
+    card.style.borderRadius = "5px";
+
+    // choosenCard.style.border = "4px solid red";
+    // choosenCard.style.borderRadius = "5px";
+
+    this.setState({
+      selected:[]
+    })
   }
 
   handleUnSelect = () => {
@@ -66,15 +82,6 @@ class GameBoard extends Component {
       } else {
       card.style.border = "4px solid green";
       card.style.borderRadius = "5px";
-      this.handleSelect(e)
-      }
-    } else if(card.parentNode.className === "card") {
-      if (card.parentNode.style.border === "4px solid green"){
-        card.parentNode.style.border = "none";
-        this.handleUnSelect();
-      } else {
-      card.parentNode.style.border = "4px solid green";
-      card.parentNode.style.borderRadius = "5px";
       this.handleSelect(e)
       }
     }
