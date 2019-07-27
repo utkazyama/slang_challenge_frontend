@@ -50,20 +50,28 @@ class GameBoard extends Component {
     }
   }
 
+  toNormal = (card, choosenCard) => {
+    choosenCard.style.border = "none";
+    card.style.border = "none";
+  }
+
   changeToRed = (e) => {
     var card = e.target.parentNode;
     const id = this.state.selected;
-    var choosenCard = <Card ref={id}/>
-    console.log(choosenCard);
+    const choosenCard = document.getElementById(id);
+
+    choosenCard.style.border = "4px solid red";
+    choosenCard.style.borderRadius = "5px";
     card.style.border = "4px solid red";
     card.style.borderRadius = "5px";
-
-    // choosenCard.style.border = "4px solid red";
-    // choosenCard.style.borderRadius = "5px";
 
     this.setState({
       selected:[]
     })
+
+    setTimeout(()=>{
+      this.toNormal(card, choosenCard)
+    }, 1000);
   }
 
   handleUnSelect = () => {
@@ -71,7 +79,6 @@ class GameBoard extends Component {
       selected: []
     })
   }
-
 
   handleColor = (e) => {
     var card = e.target.parentNode;
@@ -86,7 +93,6 @@ class GameBoard extends Component {
       }
     }
   }
-
 
   renderCards = () => {
 
