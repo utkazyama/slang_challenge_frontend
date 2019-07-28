@@ -76,7 +76,6 @@ class GameBoard extends Component {
 
   changeToRed = (e) => {
     var card = e.target.parentNode;
-    const id = this.state.selected;
     const choosenCard = this.state.initial
 
     choosenCard.style.border = "4px solid red";
