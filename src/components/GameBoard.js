@@ -125,7 +125,7 @@ class GameBoard extends Component {
 
   renderCards = () => {
     if (this.state.shuffledPh === false){
-    const phr = this.state.slangs.slice(0, 6)
+    const phr = this.state.slangs.slice(0, 8)
     for (let i = phr.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
       [phr[i], phr[j]] = [phr[j], phr[i]];
@@ -148,7 +148,7 @@ class GameBoard extends Component {
 
   renderAcronym = () => {
     if (this.state.shuffledAc === false){
-    const acr = this.state.slangs.slice(0, 6)
+    const acr = this.state.slangs.slice(0, 8)
     for (let i = acr.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
       [acr[i], acr[j]] = [acr[j], acr[i]];
