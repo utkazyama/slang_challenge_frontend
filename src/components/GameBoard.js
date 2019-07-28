@@ -14,7 +14,7 @@ class GameBoard extends Component {
       slangs: [],
       selected: [],
       score: 0,
-      timer: 30,
+      timer: 60,
       initial: [],
       gameStarted: false,
       shuffledPh: false,
@@ -143,6 +143,7 @@ class GameBoard extends Component {
       handleSelect={this.handleSelect}
       handleUnSelect={this.handleUnSelect}
       handleColor={this.handleColor}
+      handlePunishment={(punishmentType) => this.handlePunishment(punishmentType)}
       slang={slang} key={slang.id}
       />
     })
@@ -180,6 +181,18 @@ class GameBoard extends Component {
     this.countTimer()
   }
 
+  handlePunishment = (punishmentType) => {
+    if (punishmentType === "time"){
+      this.handleTimePunishment()
+    }
+  }
+
+  handleTimePunishment = () => {
+    this.setState({
+      timer: this.state.timer -5
+    })
+  }
+
   render(){
     return (
       <div>
@@ -187,7 +200,7 @@ class GameBoard extends Component {
           < StartGame handleStartGame={this.handleStartGame} />
         :
           <div>
-         {this.state.timer === 0 ?
+         {this.state.timer <= 0 ?
            < FinishPage score={this.state.score}/>
            :
            <div>
