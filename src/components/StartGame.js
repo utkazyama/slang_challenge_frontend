@@ -5,7 +5,10 @@ export default class StartGame extends Component {
   render() {
     return (
       <div>
-        <button onClick={()=> this.props.handleStartGame()} >Start Game</button>
+        <button
+        className="start-btn" 
+        onClick={()=> this.props.handleStartGame()}
+         >Start Game</button>
       </div>
     )
   }

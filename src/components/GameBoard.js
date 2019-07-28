@@ -114,7 +114,6 @@ class GameBoard extends Component {
   }
 
   renderCards = () => {
-
     return this.state.slangs.slice(0, 6).map(slang => {
       return < Card
       handleSelect={this.handleSelect}
@@ -146,7 +145,7 @@ class GameBoard extends Component {
     return (
       <div>
         {this.state.gameStarted === false ?
-          < StartGame handleStartGame={this.handleStartGame} /> 
+          < StartGame handleStartGame={this.handleStartGame} />
         :
           <div>
          {this.state.timer === 0 ?

@@ -7,6 +7,11 @@ body, html, #root {
   user-select: none;
 }
 
+.start-btn {
+  padding: 20px 20px;
+  border-radius: 1em;
+}
+
 .text {
   text-align: center;
 }
