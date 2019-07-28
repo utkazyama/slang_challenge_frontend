@@ -10,6 +10,7 @@ class GameBoard extends Component {
   constructor(props){
     super(props);
     this.state = {
+      initialN: 0,
       slangs: [],
       selected: [],
       score: 0,
@@ -125,7 +126,8 @@ class GameBoard extends Component {
 
   renderCards = () => {
     if (this.state.shuffledPh === false){
-    const phr = this.state.slangs.slice(0, 8)
+    const initialN = this.state.initialN
+    const phr = this.state.slangs.slice(initialN, initialN+8)
     for (let i = phr.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
       [phr[i], phr[j]] = [phr[j], phr[i]];
@@ -148,7 +150,8 @@ class GameBoard extends Component {
 
   renderAcronym = () => {
     if (this.state.shuffledAc === false){
-    const acr = this.state.slangs.slice(0, 8)
+    const initialN = this.state.initialN
+    const acr = this.state.slangs.slice(initialN, initialN+8)
     for (let i = acr.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
       [acr[i], acr[j]] = [acr[j], acr[i]];
@@ -169,8 +172,10 @@ class GameBoard extends Component {
   }
 
   handleStartGame = () => {
+    const randomInitialN = Math.floor(Math.random() * Math.floor(this.state.slangs.length-8))
     this.setState({
-      gameStarted: true
+      gameStarted: true,
+      initialN: randomInitialN
     })
     this.countTimer()
   }
