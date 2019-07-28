@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import AcronymCard from './AcronymCard.js'
 import FinishPage from './FinishPage.js'
 import Card from './Card.js';
+import StartGame from './StartGame.js';
 
 const API = 'https://slang-challenge-backend.herokuapp.com/cards';
 
@@ -13,7 +14,8 @@ class GameBoard extends Component {
       selected: [],
       score: 0,
       timer: 30,
-      initial: []
+      initial: [],
+      gameStarted: false
     }
   }
 
@@ -35,7 +37,6 @@ class GameBoard extends Component {
     .then(slangs => this.setState({
       slangs: slangs
     }))
-    this.countTimer()
   }
 
   filterCorrect = (selectedId) => {
@@ -134,10 +135,23 @@ class GameBoard extends Component {
     })
   }
 
+  handleStartGame = () => {
+    this.setState({
+      gameStarted: true
+    })
+    this.countTimer()
+  }
+
   render(){
     return (
       <div>
-         {this.state.timer === 0 ? < FinishPage score={this.state.score}/> :
+        {this.state.gameStarted === false ?
+          < StartGame handleStartGame={this.handleStartGame} /> 
+        :
+          <div>
+         {this.state.timer === 0 ?
+           < FinishPage score={this.state.score}/>
+           :
            <div>
             <div>
               Timer: {this.state.timer}
@@ -150,7 +164,10 @@ class GameBoard extends Component {
               {this.renderAcronym()}
             </div>
           </div>
+
         }
+        </div>
+      }
       </div>
     )
   }

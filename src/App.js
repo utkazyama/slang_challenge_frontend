@@ -9,9 +9,9 @@ function App() {
       <header>
       </header>
 
-        <div>
-          < GameBoard />
-        </div>
+      <div>
+        < GameBoard />
+      </div>
     </div>
   );
 }
