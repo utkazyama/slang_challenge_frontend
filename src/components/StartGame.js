@@ -6,7 +6,7 @@ export default class StartGame extends Component {
     return (
       <div>
         <button
-        className="start-btn" 
+        className="start-btn"
         onClick={()=> this.props.handleStartGame()}
          >Start Game</button>
       </div>

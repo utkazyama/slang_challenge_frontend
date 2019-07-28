@@ -15,7 +15,11 @@ class GameBoard extends Component {
       score: 0,
       timer: 30,
       initial: [],
-      gameStarted: false
+      gameStarted: false,
+      shuffledPh: false,
+      shuffledAc: false,
+      phArr: [],
+      acArr: []
     }
   }
 
@@ -39,14 +43,20 @@ class GameBoard extends Component {
     }))
   }
 
-  filterCorrect = (selectedId) => {
-    let remain = this.state.slangs
+  filterCorrectPh = (selectedId) => {
+    let remain = this.state.phArr
+    return  remain.filter(slang => slang.id != selectedId)
+  }
+
+  filterCorrectAc = (selectedId) => {
+    let remain = this.state.acArr
     return  remain.filter(slang => slang.id != selectedId)
   }
 
   handleSelect = (e) => {
     let selectedId = e.target.parentNode.id
-    let filtered = this.filterCorrect(selectedId);
+    let filteredPh = this.filterCorrectPh(selectedId);
+    let filteredAc = this.filterCorrectAc(selectedId);
     if (this.state.selected.length === 0){
       let initial = e.target.parentNode
       this.setState({
@@ -58,7 +68,8 @@ class GameBoard extends Component {
       this.setState({
         selected: [],
         score: currentScore + 10,
-        slangs: filtered
+        phArr: filteredPh,
+        acArr: filteredAc
       })
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
@@ -113,7 +124,19 @@ class GameBoard extends Component {
   }
 
   renderCards = () => {
-    return this.state.slangs.slice(0, 6).map(slang => {
+    if (this.state.shuffledPh === false){
+    const phr = this.state.slangs.slice(0, 6)
+    for (let i = phr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+      [phr[i], phr[j]] = [phr[j], phr[i]];
+    }
+     this.setState({
+       shuffledPh: true,
+       phArr: this.state.phArr.concat(phr)
+     })
+    }
+
+    return this.state.phArr.map(slang => {
       return < Card
       handleSelect={this.handleSelect}
       handleUnSelect={this.handleUnSelect}
@@ -124,7 +147,19 @@ class GameBoard extends Component {
   }
 
   renderAcronym = () => {
-    return this.state.slangs.slice(0, 6).map(slang => {
+    if (this.state.shuffledAc === false){
+    const acr = this.state.slangs.slice(0, 6)
+    for (let i = acr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+      [acr[i], acr[j]] = [acr[j], acr[i]];
+    }
+     this.setState({
+       shuffledAc: true,
+       acArr: this.state.acArr.concat(acr)
+     })
+    }
+
+    return this.state.acArr.map(slang => {
       return < AcronymCard
       handleSelect={this.handleSelect}
       handleUnSelect={this.handleUnSelect}
@@ -158,8 +193,8 @@ class GameBoard extends Component {
             </div>
 
             <div id="slang-showcase">
-              {this.renderCards()}
-              {this.renderAcronym()}
+            {this.renderCards()}
+            {this.renderAcronym()}
             </div>
           </div>
 
