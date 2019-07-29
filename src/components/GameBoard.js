@@ -120,17 +120,25 @@ class GameBoard extends Component {
     })
   }
 
+  handleValid = (e) => {
+    if(e.target.parentNode.className === "card"){
+      return e.target.parentNode;
+    } else if(e.target.parentNode.parentNode.className === "card"){
+      return e.target.parentNode.parentNode;
+    }
+  }
+
   handleColor = (e) => {
-  let selectedId = e.target.parentNode.id
+  let selectedId = this.handleValid(e).id
   if (this.state.correctCards.includes(selectedId)){
     return
     }else{
-    var card = e.target.parentNode;
+    var card = this.handleValid(e);
     if (card.className === "card"){
       if (card.style.border === "4px solid green"){
         card.style.border = "none";
         this.handleUnSelect();
-      } else {
+      } else if(e.target.className !== "hint" && e.target.className !== "flip-back") {
       card.style.border = "4px solid green";
       card.style.borderRadius = "5px";
       this.handleSelect(e)
@@ -228,7 +236,7 @@ class GameBoard extends Component {
   } else if(this.state.timer-this.state.prevTimer > 1){
     return "green"
   } else {
-    return "black"
+    return "white"
   }
 }
 
@@ -243,15 +251,20 @@ class GameBoard extends Component {
            < FinishPage score={this.state.score}/>
            :
            <div>
-            <div>
-             <div className="timer" style={{color: `${this.handleTimerColor()}`}}>
-               Timer: {this.state.timer}
-             </div>
-               <br />
-             <div className="score">
-             Score: {this.state.score}
-             </div>
-            </div>
+              <div className="timer-group">
+                <div className="timer minute">
+                  <div className="hand"><span></span></div>
+                  <div className="hand"><span></span></div>
+                </div>
+                <div className="timer second">
+                  <div className="hand"></div>
+                  <div className="hand"></div>
+                </div>
+                <div className="face">
+                  <h2>Score: {this.state.score}</h2>
+                  <p id="lazy" style={{color: `${this.handleTimerColor()}`}}>{this.state.timer}</p>  
+                </div>
+              </div>
 
             <div id="slang-showcase">
             {this.renderCards()}
