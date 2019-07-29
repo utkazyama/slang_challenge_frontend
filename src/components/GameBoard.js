@@ -58,11 +58,12 @@ class GameBoard extends Component {
   }
 
   handleSelect = (e) => {
-    let selectedId = e.target.parentNode.id
+    let targetEl = this.handleValid(e);
+    let selectedId = this.handleValid(e).id
     let filteredPh = this.filterCorrectPh(selectedId);
     let filteredAc = this.filterCorrectAc(selectedId);
     if (this.state.selected.length === 0){
-      let initial = e.target.parentNode
+      let initial = this.handleValid(e)
       this.setState({
         selected: selectedId,
         initial: initial
@@ -74,13 +75,13 @@ class GameBoard extends Component {
         score: currentScore + 20,
         correctCards: this.state.correctCards.concat(selectedId)
       })
-      this.changeOpacity(e);
+      this.changeOpacity(targetEl);
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
         score: currentScore - 10
       })
-      this.changeToRed(e);
+      this.changeToRed(targetEl);
     }
   }
 
@@ -89,15 +90,15 @@ class GameBoard extends Component {
     card.style.border = "none";
   }
 
-  changeOpacity = (e) => {
-    var card = e.target.parentNode;
-    const choosenCard = this.state.initial
+  changeOpacity = (targetEl) => {
+    var card = targetEl;
+    const choosenCard = this.state.initial;
     card.style.filter = "opacity(0.05)";
     choosenCard.style.filter = "opacity(0.05)";
   }
 
-  changeToRed = (e) => {
-    var card = e.target.parentNode;
+  changeToRed = (targetEl) => {
+    var card = targetEl;
     const choosenCard = this.state.initial
 
     choosenCard.style.border = "4px solid red";
@@ -262,7 +263,7 @@ class GameBoard extends Component {
                 </div>
                 <div className="face">
                   <h2>Score: {this.state.score}</h2>
-                  <p id="lazy" style={{color: `${this.handleTimerColor()}`}}>{this.state.timer}</p>  
+                  <p id="lazy" style={{color: `${this.handleTimerColor()}`}}>{this.state.timer}</p>
                 </div>
               </div>
 
