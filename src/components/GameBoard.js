@@ -115,8 +115,6 @@ class GameBoard extends Component {
   handleColor = (e) => {
   let selectedId = e.target.parentNode.id
   if (this.state.correctCards.includes(selectedId)){
-    var card = e.target.parentNode;
-    card.style.filter = "opacity(0.2)";
     return
     }else{
     var card = e.target.parentNode;
