@@ -74,6 +74,7 @@ class GameBoard extends Component {
         score: currentScore + 20,
         correctCards: this.state.correctCards.concat(selectedId)
       })
+      this.changeOpacity(e);
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
@@ -86,6 +87,13 @@ class GameBoard extends Component {
   toNormal = (card, choosenCard) => {
     choosenCard.style.border = "none";
     card.style.border = "none";
+  }
+
+  changeOpacity = (e) => {
+    var card = e.target.parentNode;
+    const choosenCard = this.state.initial
+    card.style.filter = "opacity(0.05)";
+    choosenCard.style.filter = "opacity(0.05)";
   }
 
   changeToRed = (e) => {
@@ -157,7 +165,7 @@ class GameBoard extends Component {
   }
 
   renderAcronym = () => {
-    if (this.state.shuffledAc === false){
+    if (!this.state.shuffledAc){
     const initialN = this.state.initialN
     const acr = this.state.slangs.slice(initialN, initialN+8)
     for (let i = acr.length - 1; i > 0; i--) {
@@ -200,13 +208,13 @@ class GameBoard extends Component {
 
   handleTimePunishment = () => {
     this.setState({
-      timer: this.state.timer -5
+      timer: this.state.timer -3
     })
   }
 
   handleDecScore = () => {
     this.setState({
-      score: this.state.score -5
+      score: this.state.score -0.02193012930
     })
   }
 
