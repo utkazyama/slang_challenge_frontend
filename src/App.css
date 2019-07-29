@@ -16,9 +16,10 @@ body, html, #root {
   text-align: center;
 }
 
-.hint {
-  text-align: center;
-  margin: 20px 50px;
+.hint, .flip-back {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .acr-text {

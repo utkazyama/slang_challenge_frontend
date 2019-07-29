@@ -18,9 +18,9 @@ class PhraseCardFront extends Component {
   render(){
     return (
       <div className="phrase-card-front">
-        <h3 className="text">{this.props.slang.phrase}</h3>
-        <button className="hint" onClick={(e, punishmentType) => this.flipToBack(e, this.props.slang.punishment)} >hint</button>
-      </div>
+         <h3 className="text">{this.props.slang.phrase}</h3>
+         <button className="hint" onClick={(e, punishmentType) => this.flipToBack(e, this.props.slang.punishment)} >🔔</button>
+       </div>
     )
   }
 }

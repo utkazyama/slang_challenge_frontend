@@ -15,6 +15,7 @@ class GameBoard extends Component {
       selected: [],
       score: 0,
       timer: 60,
+      prevTimer: 60,
       initial: [],
       gameStarted: false,
       shuffledPh: false,
@@ -28,7 +29,8 @@ class GameBoard extends Component {
     let remainTime = setInterval(() => {
       if (this.state.timer > 0){
       this.setState({
-        timer: this.state.timer - 1
+        timer: this.state.timer - 1,
+        prevTimer: this.state.timer
       })
     } else {
         clearInterval(remainTime)
@@ -207,6 +209,16 @@ class GameBoard extends Component {
     console.log("Consider this part")
   }
 
+  handleTimerColor = () => {
+  if (this.state.prevTimer-this.state.timer > 2){
+    return "red"
+  } else if(this.state.timer-this.state.prevTimer > 1){
+    return "green"
+  } else {
+    return "black"
+  }
+}
+
   render(){
     return (
       <div>
@@ -219,9 +231,13 @@ class GameBoard extends Component {
            :
            <div>
             <div>
-              Timer: {this.state.timer}
-              <br />
-              Score: {this.state.score}
+             <div className="timer" style={{color: `${this.handleTimerColor()}`}}>
+               Timer: {this.state.timer}
+             </div>
+               <br />
+             <div className="score">
+             Score: {this.state.score}
+             </div>
             </div>
 
             <div id="slang-showcase">
