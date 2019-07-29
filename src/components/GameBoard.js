@@ -68,7 +68,7 @@ class GameBoard extends Component {
       let currentScore = this.state.score
       this.setState({
         selected: [],
-        score: currentScore + 10,
+        score: currentScore + 20,
         phArr: filteredPh,
         acArr: filteredAc
       })
@@ -184,6 +184,10 @@ class GameBoard extends Component {
   handlePunishment = (punishmentType) => {
     if (punishmentType === "time"){
       this.handleTimePunishment()
+    }else if(punishmentType === "decScore"){
+      this.handleDecScore()
+    }else if(punishmentType === "changeColor"){
+      this.handleChangeColor()
     }
   }
 
@@ -191,6 +195,16 @@ class GameBoard extends Component {
     this.setState({
       timer: this.state.timer -5
     })
+  }
+
+  handleDecScore = () => {
+    this.setState({
+      score: this.state.score -5
+    })
+  }
+
+  handleChangeColor = () => {
+    console.log("Consider this part")
   }
 
   render(){
