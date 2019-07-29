@@ -21,7 +21,8 @@ class GameBoard extends Component {
       shuffledPh: false,
       shuffledAc: false,
       phArr: [],
-      acArr: []
+      acArr: [],
+      correctCards: []
     }
   }
 
@@ -48,12 +49,12 @@ class GameBoard extends Component {
 
   filterCorrectPh = (selectedId) => {
     let remain = this.state.phArr
-    return  remain.filter(slang => slang.id != selectedId)
+    return  remain.filter(slang => slang.id == selectedId)
   }
 
   filterCorrectAc = (selectedId) => {
     let remain = this.state.acArr
-    return  remain.filter(slang => slang.id != selectedId)
+    return  remain.filter(slang => slang.id == selectedId)
   }
 
   handleSelect = (e) => {
@@ -71,8 +72,7 @@ class GameBoard extends Component {
       this.setState({
         selected: [],
         score: currentScore + 20,
-        phArr: filteredPh,
-        acArr: filteredAc
+        correctCards: this.state.correctCards.concat(selectedId)
       })
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
@@ -113,6 +113,12 @@ class GameBoard extends Component {
   }
 
   handleColor = (e) => {
+  let selectedId = e.target.parentNode.id
+  if (this.state.correctCards.includes(selectedId)){
+    var card = e.target.parentNode;
+    card.style.filter = "opacity(0.2)";
+    return
+    }else{
     var card = e.target.parentNode;
     if (card.className === "card"){
       if (card.style.border === "4px solid green"){
@@ -124,6 +130,7 @@ class GameBoard extends Component {
       this.handleSelect(e)
       }
     }
+   }
   }
 
   renderCards = () => {
