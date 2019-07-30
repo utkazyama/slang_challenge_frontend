@@ -27,6 +27,10 @@ export default class Home extends Component {
     })
     e.target.parentNode.parentNode.remove();
   }
+
+  handleEdit = (e, id) => {
+    this.props.history.push('/edit' + '?slang=' + id)    
+  }
   
   render () {
     return (
@@ -37,14 +41,26 @@ export default class Home extends Component {
               {this.props.user.id === slang.user_id ? 
              <div>
                 <li key={slang.id} id={slang.id} style={{color: '#006400', 'font-weight': 'bold'}}>{slang.phrase}: {slang.acronym}
-                    {this.props.user.id === slang.user_id ? <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button> : null}
+                    {this.props.user.id === slang.user_id ? 
+                    <div>
+                    <button className="edit-btn" onClick={(e) => this.handleEdit(e, slang.id)}>✏</button>
+                    <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button> 
+                    </div>
+                    : 
+                    null}
                 </li>
                <br /> 
              </div>
              :
              <div>
                 <li key={slang.id} id={slang.id}>{slang.phrase}: {slang.acronym}
-                  {this.props.user.id === slang.user_id ? <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button> : null}
+                  {this.props.user.id === slang.user_id ? 
+                  <div>
+                  <button className="edit-btn" onClick={(e) => this.handleEdit(e)}>✏</button>
+                  <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button> 
+                  </div>
+                  : 
+                  null}
                 </li>
                 <br />
               </div>

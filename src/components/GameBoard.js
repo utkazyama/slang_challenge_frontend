@@ -3,6 +3,8 @@ import AcronymCard from './AcronymCard.js'
 import FinishPage from './FinishPage.js'
 import Card from './Card.js';
 import StartGame from './StartGame.js';
+{/* <img src='https://i.imgur.com/VajXFPa.gif' /> pikachu */}
+
 
 const API = 'https://slang-challenge-backend.herokuapp.com/cards';
 

@@ -5,6 +5,8 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Profile from './components/Profile';
 import GameBoard from './components/GameBoard';
+import Edit from './components/Edit.js';
+
 
 import './App.css';
 
@@ -40,6 +42,9 @@ class App extends React.Component {
           }} />
           <Route exact path='/profile' render={(routeProps)=> {
             return(< Profile {...routeProps} user={this.state.user} />)
+          }} />
+            <Route exact path='/edit' render={(routeProps)=> {
+            return(< Edit {...routeProps} user={this.state.user} />)
           }} />
           <Route exact path='/gameboard' component={GameBoard} />
         </React.Fragment>
