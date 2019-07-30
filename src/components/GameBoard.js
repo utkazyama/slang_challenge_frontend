@@ -60,8 +60,6 @@ class GameBoard extends Component {
   handleSelect = (e) => {
     let targetEl = this.handleValid(e);
     let selectedId = this.handleValid(e).id
-    let filteredPh = this.filterCorrectPh(selectedId);
-    let filteredAc = this.filterCorrectAc(selectedId);
     if (this.state.selected.length === 0){
       let initial = this.handleValid(e)
       this.setState({
@@ -223,7 +221,7 @@ class GameBoard extends Component {
 
   handleDecScore = () => {
     this.setState({
-      score: this.state.score -0.02193012930
+      score: this.state.score - 1.11
     })
   }
 
@@ -251,7 +249,7 @@ class GameBoard extends Component {
          {this.state.timer <= 0 ?
            < FinishPage score={this.state.score}/>
            :
-           <div>
+           <div className="timer-container">
               <div className="timer-group">
                 <div className="timer minute">
                   <div className="hand"><span></span></div>

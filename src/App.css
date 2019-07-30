@@ -7,13 +7,58 @@ body, html, #root {
   user-select: none;
 }
 
+.login-container {
+  text-align: center;
+}
+
+.profile-container {
+  text-align: center;
+}
+
+.list-of-slangs {
+  text-align: center;
+  list-style: none;
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+.start-game {
+  text-align: center;
+  margin-top: 3em;
+}
+
+.result-page {
+  margin-top: 15em;
+  text-align: center;
+}
+
+.result-score {
+  color: red;
+}
+
 .start-btn {
+  text-align: center;
   padding: 20px 20px;
   border-radius: 1em;
+  font-size: 20px;
+  font-weight: 700;
+  border: solid;
+}
+
+.start-btn:hover {
+  background-color: black;
+  color: white;
+  transition-duration: 0.5s;
+}
+
+.rules {
+  margin-left: 30em;
+  margin-right: 30em;
 }
 
 .text {
   text-align: center;
+  margin-top: 3.4em;
 }
 
 .hint, .flip-back {
@@ -25,19 +70,22 @@ body, html, #root {
 .acr-text {
   text-align: center;
   font-size: 0.9em;
+  margin: 20% 5% 3% 5%;
 }
 
-#root, #slang-showcase {
+#slang-showcase {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 5px;
+  transform: scale(0.9);
 }
 
 #slang-showcase {
   flex-direction: row;
   flex-wrap: wrap;
-  width: 750px;
-  height: 350px;
+  margin-left: 300px;
+  margin-right: 300px;
 }
 
 .card {
@@ -49,7 +97,7 @@ body, html, #root {
 }
 
 .card:hover {
-  transform: scale(1.02)
+  transform: scale(1.05)
 }
 
 .phrase-card-front, .phrase-card-back {
@@ -90,10 +138,16 @@ body, html, #root {
 
 /* Timer */
 
+.timer-container {
+  position: relative;
+  margin-top: -3%;
+  width: 100%;
+}
+
 .timer-group {
-  transform: scale(0.5);
-  height: 260px;
-  margin: 0 auto;
+  transform: scale(0.4);
+  height: 180px;
+  margin: auto;
   position: relative;
   width: 400px;
   color: #fff;
@@ -117,7 +171,6 @@ body, html, #root {
   left: 10px;
   position: absolute;
   width: 80px;
-  top: 10px;
 }
 
 .timer .hand {
@@ -190,8 +243,6 @@ body, html, #root {
   top: 50px;
 }
 
-
-
 .face {
   border-radius: 50%;
   height: 296px;
@@ -200,19 +251,19 @@ body, html, #root {
   position: absolute;
   width: 296px;
   text-align: center;
-  top: 52px;
+  top: 25px;
 }
 
 .face h2 {
   margin-right: 75px;
-  font-weight: 300; 
+  font-weight: 400; 
   font-size: 30px;
 }
 
 .face p {
   border-radius: 20px;
   font-size: 76px;
-  font-weight: 400;
+  font-weight: 700;
   position: absolute;
   top: 17px;
   width: 260px;
@@ -241,4 +292,50 @@ body, html, #root {
   100% {
     transform: rotate(405deg);
   }
+}
+
+/* Navigation Bar */
+
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+ul {
+  padding-top: 9px;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  width: 100%;
+  height: 3em;
+  padding-bottom: 25px;
+}
+
+.navbar a {
+  margin-right: 30px;
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 15px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.navbar a:hover {
+  background-color: black;
+  border-radius: 20px;
+  transition-duration: 0.7s;
+}
+
+.navbar a.active {
+  color: white;
+}
+
+.navbar-right {
+  float: right;
 }

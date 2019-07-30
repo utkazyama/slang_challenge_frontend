@@ -20,11 +20,9 @@ export default class Home extends Component {
   
   render () {
     return (
-      <div>
+      <div className="list-of-slangs">
         <h1>Slang List</h1>
-
-         {this.state.slangs.map(slang => <li>{slang.phrase}: {slang.acronym}</li>)}
-
+         {this.state.slangs.map(slang => <div><li>{slang.phrase}: {slang.acronym}</li><br/></div>)}
       </div>
     );
   }
