@@ -208,8 +208,8 @@ class GameBoard extends Component {
       this.handleTimePunishment()
     }else if(punishmentType === "decScore"){
       this.handleDecScore()
-    }else if(punishmentType === "changeColor"){
-      this.handleChangeColor()
+    }else if(punishmentType === "pikachu"){
+      this.handlePikachu()
     }
   }
 
@@ -225,7 +225,7 @@ class GameBoard extends Component {
     })
   }
 
-  handleChangeColor = () => {
+  handlePikachu = () => {
     console.log("Consider this part")
   }
 
