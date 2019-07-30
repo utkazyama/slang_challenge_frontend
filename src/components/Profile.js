@@ -15,7 +15,6 @@ class Profile extends React.Component{
     }
   }
 
-
   handlePhraseChange = (e) => {
     this.setState({
       phrase: e.target.value
@@ -56,17 +55,10 @@ class Profile extends React.Component{
         user_id: this.props.user.id
       })
     }
-    console.log({
-      phrase: this.state.phrase,
-      acronym: this.state.acronym,
-      hint: "",
-      punishment: this.state.punishment,
-      image: this.state.image,
-      user_id: this.props.user.id
-    })
     fetch(CARDS, reqObj)
     .then(resp => resp.json())
     .then(data => this.props.history.push('/home'))
+    alert("Successfuly Created New Slang")
   }
 
 

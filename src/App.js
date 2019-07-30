@@ -35,7 +35,9 @@ class App extends React.Component {
           <Route exact path='/' render={(routeProps)=> {
             return(<Login {...routeProps} setUser={this.setUser} />)
           }} />
-          <Route exact path='/home' component={Home} />
+          <Route exact path='/home' render={(routeProps)=> {
+            return(< Home {...routeProps} user={this.state.user} />)
+          }} />
           <Route exact path='/profile' render={(routeProps)=> {
             return(< Profile {...routeProps} user={this.state.user} />)
           }} />

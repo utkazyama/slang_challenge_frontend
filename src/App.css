@@ -7,6 +7,24 @@ body, html, #root {
   user-select: none;
 }
 
+.phrase-card-front{
+  background-color: white;
+}
+
+.acronym-card {
+  background-color: white;
+}
+
+.del-btn {
+  border: none;
+  font-size: 15px;
+}
+
+.del-btn:hover {
+  color: red;
+  transition-duration: 0.5s;
+}
+
 .login-container {
   text-align: center;
 }
@@ -100,7 +118,7 @@ body, html, #root {
   transform: scale(1.05)
 }
 
-.phrase-card-front, .phrase-card-back {
+.phrase-card-front, .phrase-card-back, .acronym-card {
   position: absolute;
   height: inherit;
   width: inherit;
@@ -108,7 +126,7 @@ body, html, #root {
   background-size: cover;
 }
 
-.phrase-card-front {
+.phrase-card-front, .acronym-card{
   filter: grayscale(0%);
   transition-duration: 1s;
   box-shadow: 5px 5px 10px;

@@ -9,8 +9,8 @@ const NavBar = (props) => {
      <ul>
        <li onClick={() => {props.handleLogout()}} >
         <NavLink to='/'>Logout</NavLink></li>
-       <li><NavLink to='/home'>Home</NavLink></li>
-       <li><NavLink to='/profile'>Profile</NavLink></li>
+       <li><NavLink to='/home'>All Slangs</NavLink></li>
+       <li><NavLink to='/profile'>My Page</NavLink></li>
        <li><NavLink to='/gameboard'>Mini Game</NavLink></li>
      </ul>
      </nav>
