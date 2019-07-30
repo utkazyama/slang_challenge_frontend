@@ -22,7 +22,7 @@ export default class Home extends Component {
     return (
       <div className="list-of-slangs">
         <h1>Slang List</h1>
-         {this.state.slangs.map(slang => <div><li>{slang.phrase}: {slang.acronym}</li><br/></div>)}
+         {this.state.slangs.map(slang => <div><li key={slang.id}>{slang.phrase}: {slang.acronym}</li><br/></div>)}
       </div>
     );
   }
