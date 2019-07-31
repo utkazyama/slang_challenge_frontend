@@ -31,7 +31,7 @@ export default class Login extends React.Component {
         name: this.state.username
       })
     }
-    fetch(USERS, reqObj)
+    fetch(USERS_DEV, reqObj)
     .then(resp => resp.json())
     .then((user) => {
       this.props.setUser(user)

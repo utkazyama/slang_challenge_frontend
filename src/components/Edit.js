@@ -3,6 +3,7 @@ import { tsPropertySignature } from '@babel/types';
 
 
 const CARDS = 'https://slang-challenge-backend.herokuapp.com/cards/';
+const CARDS_DEV = 'http://localhost:3001/cards';
 
 class Edit extends React.Component{
   constructor(props){
@@ -57,7 +58,7 @@ class Edit extends React.Component{
     }
     const urlParams = new URLSearchParams(window.location.search);
     const slangId = urlParams.get('slang');
-    fetch(`${CARDS}/edit_card/?id='${slangId}'`, reqObj)
+    fetch(`${CARDS_DEV}/edit_card/?id='${slangId}'`, reqObj)
     .then(resp => resp.json())
     .then(data => this.props.history.push('/home'))
     alert("Successfuly Editted Slang")

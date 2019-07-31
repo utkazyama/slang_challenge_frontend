@@ -7,6 +7,7 @@ import StartGame from './StartGame.js';
 
 
 const API = 'https://slang-challenge-backend.herokuapp.com/cards';
+const API_DEV = 'http://localhost:3001/cards';
 
 class GameBoard extends Component {
   constructor(props){
@@ -42,7 +43,7 @@ class GameBoard extends Component {
   }
 
   componentDidMount = () => {
-    fetch(API)
+    fetch(API_DEV)
     .then(resp => resp.json())
     .then(slangs => this.setState({
       slangs: slangs

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 
 const CARDS_API = 'https://slang-challenge-backend.herokuapp.com/cards';
+const CARDS_API_DEV = 'http://localhost:3001/cards';
 
 export default class Home extends Component {
 
@@ -13,7 +14,7 @@ export default class Home extends Component {
   }
 
   componentDidMount = () => {
-    fetch(CARDS_API)
+    fetch(CARDS_API_DEV)
     .then(resp => resp.json())
     .then(slangs => this.setState({
       slangs:  slangs.sort((a, b) => (a.phrase > b.phrase) ? 1 : -1)
@@ -22,44 +23,44 @@ export default class Home extends Component {
 
   handleDelete = (e) => {
     e.preventDefault();
-    fetch(`${CARDS_API}/${e.target.parentNode.id}`, {
+    fetch(`${CARDS_API_DEV}/${e.target.parentNode.id}`, {
       method: 'DELETE'
     })
     e.target.parentNode.parentNode.remove();
   }
 
   handleEdit = (e, id) => {
-    this.props.history.push('/edit' + '?slang=' + id)    
+    this.props.history.push('/edit' + '?slang=' + id)
   }
-  
+
   render () {
     return (
       <div className="list-of-slangs">
         <h1>Slang List</h1>
-         {this.state.slangs.map(slang => 
+         {this.state.slangs.map(slang =>
            <div>
-              {this.props.user.id === slang.user_id ? 
+              {this.props.user.id === slang.user_id ?
              <div>
                 <li key={slang.id} id={slang.id} style={{color: '#006400', 'font-weight': 'bold'}}>{slang.phrase}: {slang.acronym}
-                    {this.props.user.id === slang.user_id ? 
+                    {this.props.user.id === slang.user_id ?
                     <div>
                     <button className="edit-btn" onClick={(e) => this.handleEdit(e, slang.id)}>✏</button>
-                    <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button> 
+                    <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button>
                     </div>
-                    : 
+                    :
                     null}
                 </li>
-               <br /> 
+               <br />
              </div>
              :
              <div>
                 <li key={slang.id} id={slang.id}>{slang.phrase}: {slang.acronym}
-                  {this.props.user.id === slang.user_id ? 
+                  {this.props.user.id === slang.user_id ?
                   <div>
                   <button className="edit-btn" onClick={(e) => this.handleEdit(e)}>✏</button>
-                  <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button> 
+                  <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button>
                   </div>
-                  : 
+                  :
                   null}
                 </li>
                 <br />

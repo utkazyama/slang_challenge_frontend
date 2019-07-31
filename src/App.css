@@ -5,14 +5,16 @@ body, html, #root {
   width: 100%;
   height: 100%;
   user-select: none;
+  background-color: pink;
 }
 
 .phrase-card-front{
-  background-color: white;
+  background-color: yellow;
+
 }
 
 .acronym-card {
-  background-color: white;
+  background-color: orange;
 }
 
 .del-btn {
@@ -83,6 +85,8 @@ body, html, #root {
   position: absolute;
   bottom: 0;
   right: 0;
+  border: none;
+  background-color: transparent;
 }
 
 .acr-text {
@@ -97,6 +101,7 @@ body, html, #root {
   justify-content: center;
   margin-bottom: 5px;
   transform: scale(0.9);
+
 }
 
 #slang-showcase {
@@ -112,6 +117,7 @@ body, html, #root {
   margin: 12.5px;
   transition: transform 1s;
   transform-style: preserve-3d;
+
 }
 
 .card:hover {
@@ -124,6 +130,7 @@ body, html, #root {
   width: inherit;
   backface-visibility: hidden;
   background-size: cover;
+
 }
 
 .phrase-card-front, .acronym-card{
@@ -131,6 +138,7 @@ body, html, #root {
   transition-duration: 1s;
   box-shadow: 5px 5px 10px;
   box-shadow: 5px 5px 10px rgb(55, 55, 55, 0.85);
+  border-radius: 5%;
 }
 
 .phrase-card-front:hover {
@@ -228,7 +236,7 @@ body, html, #root {
 }
 
 .timer .hand:last-child span {
-  animation-name: spin2; 
+  animation-name: spin2;
 }
 
 .timer.minute {
@@ -274,7 +282,7 @@ body, html, #root {
 
 .face h2 {
   margin-right: 75px;
-  font-weight: 400; 
+  font-weight: 400;
   font-size: 30px;
 }
 
