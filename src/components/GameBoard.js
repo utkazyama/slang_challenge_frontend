@@ -27,7 +27,9 @@ class GameBoard extends Component {
       acArr: [],
       correctCards: [],
       answered: 0,
-      disabled: false
+      disabled: false,
+      missCount: 0,
+      hintCount: 0
     }
   }
 
@@ -84,7 +86,8 @@ class GameBoard extends Component {
       let currentScore = this.state.score
       this.setState({
         score: currentScore - 20,
-        disabled: true
+        disabled: true,
+        missCount: this.state.missCount + 1
       })
       this.changeToRed(targetEl);
     }
@@ -223,19 +226,24 @@ class GameBoard extends Component {
 
   handleTimePunishment = () => {
     this.setState({
-      timer: this.state.timer -5
+      timer: this.state.timer -5,
+      hintCount: this.state.hintCount + 1
     })
   }
 
   handleDecScore = () => {
     this.setState({
-      score: this.state.score - 15
+      score: this.state.score - 15,
+      hintCount: this.state.hintCount + 1
     })
   }
 
   handlePikachu = () => {
     const background = document.querySelector('.App');
     background.style.backgroundImage = "url('https://i.imgur.com/VajXFPa.gif')";
+    this.setState({
+      hintCount: this.state.hintCount + 1
+    })
   }
 
   handleTimerColor = () => {
@@ -261,7 +269,12 @@ handleBackground = () => {
         :
           <div>
          {this.state.timer <= 0 || this.state.answered === 8 ?
-           < FinishPage score={this.state.score} handleBackground={this.handleBackground()}/>
+           < FinishPage 
+           missCount={this.state.missCount}
+           hintCount={this.state.hintCount}
+           score={this.state.score} 
+           handleBackground={this.handleBackground()}
+           />
            :
            <div className="timer-container">
               <div className="timer-group">
