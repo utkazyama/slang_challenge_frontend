@@ -69,7 +69,7 @@ class Edit extends React.Component{
 
   render(){
     return (
-     <div className="profile-container">
+     <div className="edit-container">
        <form onSubmit={(e) => this.handleCreateSlang(e)}>
          <h1>Edit Slang</h1>
          <div>
@@ -97,7 +97,7 @@ class Edit extends React.Component{
             </select>
          </div>
          <br />
-         <input type="submit" value="Create" />
+         <input className="create-btn" type="submit" value="Create" />
        </form>
 
      </div>

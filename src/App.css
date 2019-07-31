@@ -14,6 +14,10 @@ body, #root {
   height: 100%;
 }
 
+.create-btn {
+  margin-left: 8em;
+}
+
 .slang-element {
   font-weight: 600;
   padding-bottom: 1.2em;
@@ -46,7 +50,7 @@ body, #root {
 
 .login-btn:hover {
   transition-duration: 1s;
-  background-color: #FF9966;
+  background-color: black;
   color: white;
 }
 
@@ -95,10 +99,22 @@ body, #root {
   height: 23em;
 }
 
+.edit-container {
+  margin-top: 10em;
+  margin-left: 35em;
+  padding-left: 4.5em;
+  color: white;
+  text-align: left;
+  border: solid;
+  box-sizing: border-box;
+  width: 23em;
+  height: 18em;
+}
+
 .start-game {
   color: white;
   text-align: center;
-  margin-top: 3em;
+  margin-top: 6em;
 }
 
 .result-page {

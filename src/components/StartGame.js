@@ -5,10 +5,6 @@ export default class StartGame extends Component {
   render() {
     return (
       <div className="start-game">
-        <button
-        className="start-btn"
-        onClick={()=> this.props.handleStartGame()}
-         >Start Game</button>
          <div className="guide">
             <br/>
               <h2>Test your knowledge about slang with this Mini Game</h2>
@@ -22,6 +18,12 @@ export default class StartGame extends Component {
                 <br/>
               <li>↩: Back to display phrases.</li>
             </ul>
+            <br/>
+            <br/>
+                <button
+            className="start-btn"
+            onClick={()=> this.props.handleStartGame()}
+            >Start Game</button>
             </div>
          </div>
       </div>

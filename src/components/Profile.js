@@ -98,7 +98,7 @@ class Profile extends React.Component{
             </select>
          </div>
          <br />
-         <input type="submit" value="Create" />
+         <input className="create-btn" type="submit" value="Create" />
        </form>
 
      </div>
