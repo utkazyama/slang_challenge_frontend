@@ -23,10 +23,10 @@ export default class Home extends Component {
 
   handleDelete = (e) => {
     e.preventDefault();
-    fetch(`${CARDS_API_DEV}/${e.target.parentNode.id}`, {
+    fetch(`${CARDS_API_DEV}/${e.target.parentNode.parentNode.id}`, {
       method: 'DELETE'
     })
-    e.target.parentNode.parentNode.remove();
+    e.target.parentNode.parentNode.parentNode.remove();
   }
 
   handleEdit = (e, id) => {
