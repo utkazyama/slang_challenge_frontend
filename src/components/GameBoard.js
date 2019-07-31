@@ -3,6 +3,7 @@ import AcronymCard from './AcronymCard.js'
 import FinishPage from './FinishPage.js'
 import Card from './Card.js';
 import StartGame from './StartGame.js';
+import playGame from '../theme2.mp3';
 {/* <img src='https://i.imgur.com/VajXFPa.gif' /> pikachu */}
 
 
@@ -294,6 +295,12 @@ handleBackground = () => {
                   <p id="lazy" style={{color: `${this.handleTimerColor()}`}}>{this.state.timer}</p>
                 </div>
               </div>
+
+              <iframe src={playGame} allow="autoplay" style={{display: 'none'}}>
+                <audio controls="controls" allow="autoplay">
+                  <source src={playGame} type="audio/mp3" />
+                </audio>
+              </iframe>
 
             <div id="slang-showcase">
             {this.renderCards()}
