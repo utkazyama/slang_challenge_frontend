@@ -134,14 +134,21 @@ body, #root {
   /* background-image: linear-gradient(120deg, #A445B2 0%, #D41872 52%, #FF0066 100%); */
 }
 
-.del-btn {
-  border: none;
-  font-size: 15px;
+.btn-container {
+
 }
 
-.del-btn:hover {
+.del-btn, .edit-btn {
+  color:white;
+  border: none;
+  font-size: 1.5em;
+  background-color: transparent;
+}
+
+.del-btn:hover, .edit-btn:hover {
   color: red;
   transition-duration: 0.5s;
+  background-color: transparent;
 }
 
 .login-container {
@@ -189,8 +196,8 @@ body, #root {
 
 .start-game {
   color: white;
-  text-align: center;
-  margin-top: 6em;
+  text-align: left;
+  margin-top: 5em;
 }
 
 .start-btn {
@@ -200,6 +207,9 @@ body, #root {
   font-size: 20px;
   font-weight: 700;
   border: solid;
+  margin-left: 20em;
+  box-sizing: border-box;
+  width: 10em;
 }
 
 .start-btn:hover {
@@ -209,13 +219,19 @@ body, #root {
 }
 
 .rules {
-  margin-left: 30em;
-  margin-right: 30em;
+  font-size: 1.15em;
+  /* margin-left: 25em; */
+  margin-right: 33em;
+  padding-left: 23.5em;
+}
+
+.start-title {
+  padding-left: 18em;
 }
 
 .text {
   text-align: center;
-  margin-top: 3.4em;
+  margin-top: 3.0em;
 }
 
 .hint {

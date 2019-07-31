@@ -6,18 +6,15 @@ export default class StartGame extends Component {
     return (
       <div className="start-game">
          <div className="guide">
-            <br/>
-              <h2>Test your knowledge about slang with this Mini Game</h2>
-            <br/>
+              <h2 className="start-title">Test your knowledge about slang with this Mini Game</h2>
+              <br/>
             <div className="rules">
-            <h3>Rules:</h3>
-            <ul>
-              <li>Blue cards provide slangs and Pink cards provide definition of slangs. Choose the matching pair of cards in 30 seconds. when you find the correct pair of cards you will earn 20 points. If you choose an incorrect pair, 20 points will be deducted.</li>
+            <h3 className="rule-text">Rules</h3>
+              <p>Blue cards provide slangs and Pink cards provide definition of slangs. Choose the matching pair of cards in 30 seconds. when you find the correct pair of cards you will earn 20 points. If you choose an incorrect pair, 20 points will be deducted.</p>
                 <br/>
-              <li>🔔: Click to receive a hint. You will get a random penalty.</li>
+              <p>🔔: Click to receive a hint. You will get a random penalty.</p>
                 <br/>
-              <li>↩: Back to display phrases.</li>
-            </ul>
+              <p>↩: Back to display phrases.</p>
             <br/>
             <br/>
                 <button

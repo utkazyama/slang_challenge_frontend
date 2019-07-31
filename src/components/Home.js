@@ -36,14 +36,14 @@ export default class Home extends Component {
   render () {
     return (
       <div className="list-of-slangs">
-        <h1 className="slang-list-title">Slang List</h1>
+        <h1 className="slang-list-title">All Slangs</h1>
          {this.state.slangs.map(slang =>
            <div className="slang-list-container">
               {this.props.user.id === slang.user_id ?
              <div className="slang-element">
-                <li key={slang.id} id={slang.id} style={{color: '#FF6347', 'font-weight': 'bold'}}>{slang.phrase}: {slang.acronym}
+                <li key={slang.id} id={slang.id} style={{color: 'red', 'font-weight': 'bold'}}>{slang.phrase}: {slang.acronym}
                     {this.props.user.id === slang.user_id ?
-                    <div>
+                    <div className="btn-container">
                     <button className="edit-btn" onClick={(e) => this.handleEdit(e, slang.id)}>✏</button>
                     <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button>
                     </div>
@@ -56,7 +56,7 @@ export default class Home extends Component {
              <div className="slang-element">
                 <li key={slang.id} id={slang.id}>{slang.phrase}: {slang.acronym}
                   {this.props.user.id === slang.user_id ?
-                  <div>
+                  <div className="btn-container">
                   <button className="edit-btn" onClick={(e) => this.handleEdit(e)}>✏</button>
                   <button className="del-btn" onClick={(e) => this.handleDelete(e)}>✖</button>
                   </div>
