@@ -14,6 +14,14 @@ body, #root {
   height: 100%;
 }
 
+.login-logo {
+  width: 30em;
+}
+
+.logo-img-container {
+  align-content: center;
+}
+
 /* Finish Game */
 
 .sub-container {
@@ -117,12 +125,13 @@ body, #root {
 }
 
 .phrase-card-front{
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  /* background-image: linear-gradient(120deg, #00c6fb 0%, #005bea 100%); */
+  background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
 }
- 
 
 .acronym-card {
-  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+  /* background-image: linear-gradient(120deg, #A445B2 0%, #D41872 52%, #FF0066 100%); */
 }
 
 .del-btn {
@@ -137,15 +146,20 @@ body, #root {
 
 .login-container {
   color: white;
-  border: solid;
   position: absolute;
   text-align: center;
-  margin-top: 20%;
-  margin-left: 35em;
+  margin-top: 15%;
+  margin-left: 30em;
   margin-right: 35em;
   box-sizing: border-box;
   width: 20em;
   height: 10em;
+}
+
+.form-container {
+  margin-left: 4.4em;
+  width: 20em;
+  box-sizing: border-box;
 }
 
 .profile-container {
@@ -457,6 +471,13 @@ body, #root {
   height: 100%;
 }
 
+.logo {
+  float: left;
+  padding: 1em 0;
+  padding-left: 2em;
+  width: 12%;
+}
+
 ul {
   padding-top: 9px;
   margin: 0;
@@ -465,7 +486,6 @@ ul {
 
 .navbar {
   overflow: hidden;
-  background-color: #333;
   width: 100%;
   height: 3em;
   padding-bottom: 25px;

@@ -41,7 +41,7 @@ export default class Home extends Component {
            <div className="slang-list-container">
               {this.props.user.id === slang.user_id ?
              <div className="slang-element">
-                <li key={slang.id} id={slang.id} style={{color: '#006400', 'font-weight': 'bold'}}>{slang.phrase}: {slang.acronym}
+                <li key={slang.id} id={slang.id} style={{color: '#FF6347', 'font-weight': 'bold'}}>{slang.phrase}: {slang.acronym}
                     {this.props.user.id === slang.user_id ?
                     <div>
                     <button className="edit-btn" onClick={(e) => this.handleEdit(e, slang.id)}>✏</button>

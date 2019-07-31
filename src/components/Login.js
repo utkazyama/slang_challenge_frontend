@@ -1,5 +1,6 @@
 import React from 'react';
 import Profile from './Profile.js';
+import logo from '../slang_challenge_logo.png';
 
 const USERS = 'https://slang-challenge-backend.herokuapp.com/users';
 const USERS_DEV = 'http://localhost:3001/users';
@@ -42,15 +43,20 @@ export default class Login extends React.Component {
   render(){
     return(
       <div className="login-container">
-        <form onSubmit={(e) => this.handleSubmit(e)}>
-          <h1>Login / Sign in</h1>
-          <div>
-            <label htmlFor="username">Username: </label>
-            <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} type="text" name="username" placeholder="Username" />
-          </div>
-          <br />
-          <input className="login-btn" type="submit" value="Login" />
-        </form>
+        <div className="logo-img-container">
+          <img src={logo} className="login-logo"/>
+        </div>
+        <div className="form-container">
+          <form onSubmit={(e) => this.handleSubmit(e)}>
+            <h1>Login / Sign in</h1>
+            <div>
+              <label htmlFor="username">Username: </label>
+              <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} type="text" name="username" placeholder="Username" />
+            </div>
+            <br />
+            <input className="login-btn" type="submit" value="Login" />
+          </form>
+        </div>
       </div>
     )
   }
