@@ -17,15 +17,16 @@ class GameBoard extends Component {
       slangs: [],
       selected: [],
       score: 0,
-      timer: 45,
-      prevTimer: 45,
+      timer: 40,
+      prevTimer: 40,
       initial: [],
       gameStarted: false,
       shuffledPh: false,
       shuffledAc: false,
       phArr: [],
       acArr: [],
-      correctCards: []
+      correctCards: [],
+      answered: 0
     }
   }
 
@@ -74,13 +75,14 @@ class GameBoard extends Component {
       this.setState({
         selected: [],
         score: currentScore + 20,
-        correctCards: this.state.correctCards.concat(selectedId)
+        correctCards: this.state.correctCards.concat(selectedId),
+        answered: this.state.answered + 1
       })
       this.changeOpacity(targetEl);
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
-        score: currentScore - 10
+        score: currentScore - 20
       })
       this.changeToRed(targetEl);
     }
@@ -107,18 +109,19 @@ class GameBoard extends Component {
     card.style.border = "4px solid red";
     card.style.borderRadius = "7%";
 
+    setTimeout(()=>{
+      this.toNormal(card, choosenCard)
+    }, 700);
+
     this.setState({
       selected:[]
     })
-
-    setTimeout(()=>{
-      this.toNormal(card, choosenCard)
-    }, 1000);
   }
 
   handleUnSelect = () => {
     this.setState({
-      selected: []
+      selected: [],
+      initial: []
     })
   }
 
@@ -218,13 +221,13 @@ class GameBoard extends Component {
 
   handleTimePunishment = () => {
     this.setState({
-      timer: this.state.timer -3
+      timer: this.state.timer -5
     })
   }
 
   handleDecScore = () => {
     this.setState({
-      score: this.state.score - 1.11
+      score: this.state.score - 15
     })
   }
 
@@ -255,7 +258,7 @@ handleBackground = () => {
           < StartGame handleStartGame={this.handleStartGame} />
         :
           <div>
-         {this.state.timer <= 0 ?
+         {this.state.timer <= 0 || this.state.answered === 8 ?
            < FinishPage score={this.state.score} handleBackground={this.handleBackground()}/>
            :
            <div className="timer-container">
