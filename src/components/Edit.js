@@ -73,17 +73,17 @@ class Edit extends React.Component{
        <form onSubmit={(e) => this.handleCreateSlang(e)}>
          <h1>Edit Slang</h1>
          <div>
-           <label htmlFor="phrase">Phrase: </label>
+           <label htmlFor="phrase">Slang: </label>
            <input onChange={(e) => this.handlePhraseChange(e)} value={this.state.phrase} type="text" name="phrase" placeholder="Phrase" />
          </div>
          <br />
          <div>
-           <label htmlFor="achronym">Achronym: </label>
+           <label htmlFor="achronym">Definition: </label>
            <input onChange={(e) => this.handleAcronymChange(e)} value={this.state.acronym} type="text" name="acronym" placeholder="Acronym" />
          </div>
          <br />
          <div>
-           <label htmlFor="img_url">Image: </label>
+           <label htmlFor="img_url">Hint image: </label>
            <input onChange={(e) => this.handleImageChange(e)} value={this.state.image} type="text" name="image" placeholder="Image URL" />
          </div>
          <br />

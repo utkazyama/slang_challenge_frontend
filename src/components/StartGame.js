@@ -12,7 +12,7 @@ export default class StartGame extends Component {
             <div className="rules">
             <h3>Rules:</h3>
             <ul>
-              <li>Color cards provide phrases and color cards provide acronym of slnags. Choose the matching pair of cards in 40 seconds. when you find the correct pair of cards you will earn 20 points. If you choose an incorrect pair, 20 points will be deducted.</li>
+              <li>Blue cards provide slangs and Pink cards provide definition of slangs. Choose the matching pair of cards in 30 seconds. when you find the correct pair of cards you will earn 20 points. If you choose an incorrect pair, 20 points will be deducted.</li>
                 <br/>
               <li>🔔: Click to receive a hint. You will get a random penalty.</li>
                 <br/>

@@ -14,9 +14,67 @@ body, #root {
   height: 100%;
 }
 
+/* Finish Game */
+
+.sub-container {
+  margin-left: 24em;
+  margin-right: 40em;
+  width: 40em;
+  height: 20em;
+  box-sizing: border-box;
+}
+
+.miss-count {
+  color: red;
+}
+
+.hint-count {
+  color: yellow;
+}
+
+.rate {
+  color: lightblue;
+}
+
+.miss-container {
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  margin: 1em;
+  box-sizing: border-box;
+}
+
+.hint-container {
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  margin: 1em;
+  box-sizing: border-box;
+}
+
+.AR-container {
+  display: inline-block;
+  width: 10em;
+  height: 10em;
+  margin: 1em;
+  box-sizing: border-box;
+}
+
+.result-page {
+  color: white;
+  margin-top: 10em;
+  text-align: center;
+}
+
+.result-score {
+  color: green;
+}
+
 .total-score {
   font-size: 4em;
 }
+
+/* end */
 
 .create-btn {
   margin-left: 8em;
@@ -121,16 +179,6 @@ body, #root {
   margin-top: 6em;
 }
 
-.result-page {
-  color: white;
-  margin-top: 15em;
-  text-align: center;
-}
-
-.result-score {
-  color: red;
-}
-
 .start-btn {
   text-align: center;
   padding: 20px 20px;
@@ -156,12 +204,20 @@ body, #root {
   margin-top: 3.4em;
 }
 
-.hint, .flip-back {
+.hint {
   position: absolute;
   bottom: 0;
   right: 0;
   border: none;
   background-color: transparent;
+}
+
+.flip-back {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: none;
+  border-top-left-radius: 20%;
 }
 
 .acr-text {

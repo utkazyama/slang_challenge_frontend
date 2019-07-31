@@ -17,8 +17,8 @@ class GameBoard extends Component {
       slangs: [],
       selected: [],
       score: 0,
-      timer: 40,
-      prevTimer: 40,
+      timer: 30,
+      prevTimer: 30,
       initial: [],
       gameStarted: false,
       shuffledPh: false,
@@ -251,6 +251,8 @@ class GameBoard extends Component {
     return "red"
   } else if(this.state.timer-this.state.prevTimer > 1){
     return "green"
+  } else if (this.state.timer < 10) {
+    return "red"
   } else {
     return "white"
   }
@@ -269,7 +271,8 @@ handleBackground = () => {
         :
           <div>
          {this.state.timer <= 0 || this.state.answered === 8 ?
-           < FinishPage 
+           < FinishPage
+           answered={this.state.answered}
            missCount={this.state.missCount}
            hintCount={this.state.hintCount}
            score={this.state.score} 
