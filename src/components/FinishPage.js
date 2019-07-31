@@ -10,7 +10,7 @@ export default class FinishPage extends Component {
       return 0;
     } else {
       let percentage = ((correctAnswer - this.props.missCount)/correctAnswer)*100;
-      return percentage;
+      return percentage.toFixed(2);
     }
   }
 
