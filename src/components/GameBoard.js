@@ -4,6 +4,11 @@ import FinishPage from './FinishPage.js'
 import Card from './Card.js';
 import StartGame from './StartGame.js';
 import playGame from '../theme2.mp3';
+import click from '../click.mp3';
+import breakSound from '../breakSound.mp3';
+import booSound from '../booSound.mp3';
+import victory from '../victory.mp3';
+
 {/* <img src='https://i.imgur.com/VajXFPa.gif' /> pikachu */}
 
 
@@ -83,6 +88,7 @@ class GameBoard extends Component {
         answered: this.state.answered + 1
       })
       this.changeOpacity(targetEl);
+      this.handleBreakSound();
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
@@ -90,6 +96,7 @@ class GameBoard extends Component {
         disabled: true,
         missCount: this.state.missCount + 1
       })
+      this.handleBooSound();
       this.changeToRed(targetEl);
     }
   }
@@ -149,10 +156,12 @@ class GameBoard extends Component {
       if (card.style.border === "4px solid green"){
         card.style.border = "none";
         this.handleUnSelect();
+        this.handleClickSound()
       } else if(e.target.className !== "hint" && e.target.className !== "flip-back") {
       card.style.border = "4px solid green";
       card.style.borderRadius = "7%";
       this.handleSelect(e)
+      this.handleClickSound()
       }
     }
    }
@@ -254,6 +263,8 @@ class GameBoard extends Component {
     return "green"
   } else if (this.state.timer < 10) {
     return "red"
+  } else if (this.state.timer === 10) {
+
   } else {
     return "white"
   }
@@ -262,11 +273,36 @@ class GameBoard extends Component {
 handleBackground = () => {
   const background = document.querySelector('.App');
   background.style.backgroundImage = "url('https://wallpapercave.com/wp/wp1979062.jpg')";
+  this.handleVictorySound();
+}
+
+handleClickSound = () => {
+  var x = document.getElementById("click"); 
+  x.play();
+}
+
+handleBreakSound = () => {
+  var x = document.getElementById("break"); 
+  x.volume = 1;
+  x.play();
+}
+
+handleBooSound = () => {
+  var x = document.getElementById("boo"); 
+  x.play();
+}
+
+handleVictorySound = () => {
+  var x = document.getElementById("victory"); 
+  x.play();
 }
 
   render(){
     return (
       <div>
+        <audio id="victory" controls="controls" style={{display: 'none'}}>
+          <source src={victory} type="audio/mp3" />
+        </audio>
         {this.state.gameStarted === false ?
           < StartGame handleStartGame={this.handleStartGame} />
         :
@@ -296,11 +332,23 @@ handleBackground = () => {
                 </div>
               </div>
 
-              <iframe src={playGame} allow="autoplay" style={{display: 'none'}}>
-                <audio controls="controls" allow="autoplay">
+              <iframe src={playGame} volume="0.1" allow="autoplay" style={{display: 'none'}}>
+                <audio controls volume="0.1" allow="autoplay">
                   <source src={playGame} type="audio/mp3" />
                 </audio>
               </iframe>
+
+              <audio id="click" controls="controls" style={{display: 'none'}}>
+                <source src={click} type="audio/mp3" />
+              </audio>
+
+              <audio id="break" controls="controls" style={{display: 'none'}}>
+                <source src={breakSound} type="audio/mp3" />
+              </audio>
+
+              <audio id="boo" controls="controls" style={{display: 'none'}}>
+                <source src={booSound} type="audio/mp3" />
+              </audio>
 
             <div id="slang-showcase">
             {this.renderCards()}
