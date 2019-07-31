@@ -43,7 +43,7 @@ class Edit extends React.Component{
   handleCreateSlang = (e) => {
     e.preventDefault()
     const reqObj = {
-      method: 'POST',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -58,7 +58,7 @@ class Edit extends React.Component{
     }
     const urlParams = new URLSearchParams(window.location.search);
     const slangId = urlParams.get('slang');
-    fetch(`${CARDS_DEV}/edit_card/?id='${slangId}'`, reqObj)
+    fetch(`${CARDS_DEV}/${slangId}`, reqObj)
     .then(resp => resp.json())
     .then(data => this.props.history.push('/home'))
     alert("Successfuly Editted Slang")
