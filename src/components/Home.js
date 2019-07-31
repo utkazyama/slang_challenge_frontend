@@ -36,11 +36,11 @@ export default class Home extends Component {
   render () {
     return (
       <div className="list-of-slangs">
-        <h1>Slang List</h1>
+        <h1 className="slang-list-title">Slang List</h1>
          {this.state.slangs.map(slang =>
-           <div>
+           <div className="slang-list-container">
               {this.props.user.id === slang.user_id ?
-             <div>
+             <div className="slang-element">
                 <li key={slang.id} id={slang.id} style={{color: '#006400', 'font-weight': 'bold'}}>{slang.phrase}: {slang.acronym}
                     {this.props.user.id === slang.user_id ?
                     <div>
@@ -53,7 +53,7 @@ export default class Home extends Component {
                <br />
              </div>
              :
-             <div>
+             <div className="slang-element">
                 <li key={slang.id} id={slang.id}>{slang.phrase}: {slang.acronym}
                   {this.props.user.id === slang.user_id ?
                   <div>

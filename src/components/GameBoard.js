@@ -103,9 +103,9 @@ class GameBoard extends Component {
     const choosenCard = this.state.initial
 
     choosenCard.style.border = "4px solid red";
-    choosenCard.style.borderRadius = "5px";
+    choosenCard.style.borderRadius = "7%";
     card.style.border = "4px solid red";
-    card.style.borderRadius = "5px";
+    card.style.borderRadius = "7%";
 
     this.setState({
       selected:[]
@@ -142,7 +142,7 @@ class GameBoard extends Component {
         this.handleUnSelect();
       } else if(e.target.className !== "hint" && e.target.className !== "flip-back") {
       card.style.border = "4px solid green";
-      card.style.borderRadius = "5px";
+      card.style.borderRadius = "7%";
       this.handleSelect(e)
       }
     }
@@ -229,7 +229,8 @@ class GameBoard extends Component {
   }
 
   handlePikachu = () => {
-    console.log("Consider this part")
+    const background = document.querySelector('.App');
+    background.style.backgroundImage = "url('https://i.imgur.com/VajXFPa.gif')";
   }
 
   handleTimerColor = () => {
@@ -242,6 +243,11 @@ class GameBoard extends Component {
   }
 }
 
+handleBackground = () => {
+  const background = document.querySelector('.App');
+  background.style.backgroundImage = "url('https://wallpapercave.com/wp/wp1979062.jpg')";
+}
+
   render(){
     return (
       <div>
@@ -250,7 +256,7 @@ class GameBoard extends Component {
         :
           <div>
          {this.state.timer <= 0 ?
-           < FinishPage score={this.state.score}/>
+           < FinishPage score={this.state.score} handleBackground={this.handleBackground()}/>
            :
            <div className="timer-container">
               <div className="timer-group">

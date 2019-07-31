@@ -49,7 +49,7 @@ export default class Login extends React.Component {
             <input onChange={(e) => this.handleUsernameChange(e)} value={this.state.username} type="text" name="username" placeholder="Username" />
           </div>
           <br />
-          <input type="submit" value="Login" />
+          <input className="login-btn" type="submit" value="Login" />
         </form>
       </div>
     )

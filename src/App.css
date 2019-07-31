@@ -1,20 +1,62 @@
-body, html, #root {
+body, #root {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   width: 100%;
   height: 100%;
   user-select: none;
-  background-color: pink;
+  background-color: white;
+  background-image: url('https://wallpapercave.com/wp/wp1979062.jpg');
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+.slang-element {
+  font-weight: 600;
+  padding-bottom: 1.2em;
+}
+
+.list-of-slangs {
+  color: white;
+  margin-left: 15em;
+  text-align: left;
+  list-style: none;
+  font-size: 1.1em;
+  font-weight: 300;
+}
+
+.slang-list-title {
+  font-size: 3em;
+  padding-bottom: 0.2em;
+}
+
+.login-btn {
+  color: black;
+  text-align: center;
+  padding: 5px 5px;
+  border-radius: 1em;
+  font-size: 10px;
+  font-weight: 700;
+  border: none;
+  background-color: white;
+}
+
+.login-btn:hover {
+  transition-duration: 1s;
+  background-color: #FF9966;
+  color: white;
 }
 
 .phrase-card-front{
-  background-color: yellow;
-
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 }
+ 
 
 .acronym-card {
-  background-color: orange;
+  background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
 }
 
 .del-btn {
@@ -28,26 +70,39 @@ body, html, #root {
 }
 
 .login-container {
+  color: white;
+  border: solid;
+  position: absolute;
   text-align: center;
+  margin-top: 20%;
+  margin-left: 35em;
+  margin-right: 35em;
+  box-sizing: border-box;
+  width: 20em;
+  height: 10em;
 }
 
 .profile-container {
-  text-align: center;
-}
-
-.list-of-slangs {
-  text-align: center;
-  list-style: none;
-  font-size: 1.1em;
-  font-weight: 300;
+  margin-top: 10em;
+  margin-left: 35em;
+  padding-left: 3.5em;
+  padding-bottom: 24em;
+  color: white;
+  text-align: left;
+  border: solid;
+  box-sizing: border-box;
+  width: 23em;
+  height: 23em;
 }
 
 .start-game {
+  color: white;
   text-align: center;
   margin-top: 3em;
 }
 
 .result-page {
+  color: white;
   margin-top: 15em;
   text-align: center;
 }
@@ -101,7 +156,6 @@ body, html, #root {
   justify-content: center;
   margin-bottom: 5px;
   transform: scale(0.9);
-
 }
 
 #slang-showcase {
@@ -112,6 +166,7 @@ body, html, #root {
 }
 
 .card {
+  color: white;
   width: 150px;
   height: 150px;
   margin: 12.5px;
@@ -130,7 +185,6 @@ body, html, #root {
   width: inherit;
   backface-visibility: hidden;
   background-size: cover;
-
 }
 
 .phrase-card-front, .acronym-card{
