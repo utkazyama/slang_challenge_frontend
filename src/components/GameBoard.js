@@ -26,7 +26,8 @@ class GameBoard extends Component {
       phArr: [],
       acArr: [],
       correctCards: [],
-      answered: 0
+      answered: 0,
+      disabled: false
     }
   }
 
@@ -82,7 +83,8 @@ class GameBoard extends Component {
     }else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
-        score: currentScore - 20
+        score: currentScore - 20,
+        disabled: true
       })
       this.changeToRed(targetEl);
     }
@@ -91,6 +93,10 @@ class GameBoard extends Component {
   toNormal = (card, choosenCard) => {
     choosenCard.style.border = "none";
     card.style.border = "none";
+    this.setState({
+      selected:[],
+      disabled: false
+    })
   }
 
   changeOpacity = (targetEl) => {
@@ -111,11 +117,7 @@ class GameBoard extends Component {
 
     setTimeout(()=>{
       this.toNormal(card, choosenCard)
-    }, 700);
-
-    this.setState({
-      selected:[]
-    })
+    }, 1200);
   }
 
   handleUnSelect = () => {
@@ -139,7 +141,7 @@ class GameBoard extends Component {
     return
     }else{
     var card = this.handleValid(e);
-    if (card.className === "card"){
+    if (card.className === "card" && this.state.disabled === false){
       if (card.style.border === "4px solid green"){
         card.style.border = "none";
         this.handleUnSelect();
