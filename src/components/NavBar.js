@@ -7,7 +7,7 @@ const NavBar = (props) => {
   const displays = props.user.name ? {display: 'block'} : {display: 'none'}
  return (
    <div className='navbar' style={displays}>
-      <img src={logo} alt="logo" class="logo"/>
+      <img src={logo} alt="logo" className="logo"/>
     <nav>
      <ul>
        <li onClick={() => {props.handleLogout()}} >

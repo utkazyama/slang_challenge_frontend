@@ -1,5 +1,4 @@
 import React from 'react';
-import Profile from './Profile.js';
 import logo from '../slang_challenge_logo.png';
 
 const USERS = 'https://slang-challenge-backend.herokuapp.com/users';
@@ -44,7 +43,7 @@ export default class Login extends React.Component {
     return(
       <div className="login-container">
         <div className="logo-img-container">
-          <img src={logo} className="login-logo"/>
+          <img src={logo} className="login-logo" alt="logo" />
         </div>
         <div className="form-container">
           <form onSubmit={(e) => this.handleSubmit(e)}>
