@@ -9,6 +9,8 @@ import breakSound from '../breakSound.mp3';
 import booSound from '../booSound.mp3';
 import victory from '../victory.mp3';
 
+// Total Score, Total Accuracy Rate, Total Game played
+
 {/* <img src='https://i.imgur.com/VajXFPa.gif' /> pikachu */}
 
 
