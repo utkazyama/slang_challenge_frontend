@@ -5,11 +5,11 @@ export default class FinishPage extends Component {
 
   handlePecentage = () => {
     const correctAnswer = this.props.answered;
-    let percentage = ((correctAnswer - this.props.missCount)/correctAnswer)*100;
+    let percentage = ((correctAnswer)/(correctAnswer+this.props.missCount))*100;
     if (percentage <= 0){
       return 0;
     } else if(percentage >= 1){
-      let percentage = ((correctAnswer - this.props.missCount)/correctAnswer)*100;
+      let percentage = ((correctAnswer)/(correctAnswer+this.props.missCount))*100;
       return percentage.toFixed(2);
     } else {
       return 0;

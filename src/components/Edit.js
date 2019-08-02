@@ -1,5 +1,5 @@
 import React from 'react';
-// import { tsPropertySignature } from '@babel/types';
+import { tsPropertySignature } from '@babel/types';
 
 
 const CARDS = 'https://slang-challenge-backend.herokuapp.com/cards/';

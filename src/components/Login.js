@@ -1,4 +1,5 @@
 import React from 'react';
+import Profile from './Profile.js';	
 import logo from '../slang_challenge_logo.png';
 
 const USERS = 'https://slang-challenge-backend.herokuapp.com/users';

@@ -17,7 +17,7 @@ export default class Home extends Component {
     fetch(CARDS_API_DEV)
     .then(resp => resp.json())
     .then(slangs => this.setState({
-      slangs:  slangs.sort((a, b) => (a.phrase > b.phrase) ? 1 : -1)
+      slangs: slangs.sort((a, b) => (a.phrase > b.phrase) ? 1 : -1)
     }))
   }
 
