@@ -1,19 +1,45 @@
 import React, {Component} from 'react';
+const USERS_DEV = 'http://localhost:3001/users';
 
 
 export default class FinishPage extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      orginal_total_score: this.props.user.total_score,
+      original_total_game_played: this.props.user.total_game_played,
+      original_accuracy_rate: this.props.user.accuracy_rate
+    }
+  }
 
   handlePecentage = () => {
     const correctAnswer = this.props.answered;
     let percentage = ((correctAnswer)/(correctAnswer+this.props.missCount))*100;
-    if (percentage <= 0){
-      return 0;
-    } else if(percentage >= 1){
-      let percentage = ((correctAnswer)/(correctAnswer+this.props.missCount))*100;
-      return percentage.toFixed(2);
-    } else {
-      return 0;
+    this.handleScoreUpdate(percentage)
+    return percentage.toFixed(2);
+  }
+
+  handleAccuracy = (ar) => {
+    const total_ar = ((this.state.original_accuracy_rate + ar)/(this.state.original_total_game_played +1));
+    return total_ar.toFixed(2)
+  }
+
+  handleScoreUpdate = (ar) => {
+    const newAr = this.handleAccuracy(ar);
+    const reqObj = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+       total_score: this.state.orginal_total_score + this.props.score,
+       total_game_played: this.state.original_total_game_played + 1,
+       accuracy_rate: newAr
+      })
     }
+    fetch(`${USERS_DEV}/${this.props.user.id}`, reqObj)
+    .then(resp => resp.json())
+    .then(data => console.log(data))
   }
 
   render() {

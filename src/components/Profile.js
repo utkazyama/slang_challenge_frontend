@@ -70,6 +70,10 @@ class Profile extends React.Component{
      <div className="profile-container">
        <h1>My Page</h1>
        <h2>Name: {this.props.user.name}</h2>
+       <h2>Total Game Played: {this.props.user.total_game_played ? this.props.user.total_game_played : 0}</h2>
+       <h2>Total Score: {this.props.user.total_score ? this.props.user.total_score : 0}</h2>
+       <h2>Total Accuracy Rate: {this.props.user.accuracy_rate ? this.props.user.accuracy_rate : 0}%</h2>
+
 
        <form onSubmit={(e) => this.handleCreateSlang(e)}>
          <h1>Create New Slang</h1>
@@ -94,7 +98,7 @@ class Profile extends React.Component{
               <option value="time">Time Deduction</option>
               <option value="decScore">Score Deduction</option>
               <option value="pikachu">Disturbing Image</option>
-              <option selected value="null">none</option>
+              <option defaultValue="null">none</option>
             </select>
          </div>
          <br />

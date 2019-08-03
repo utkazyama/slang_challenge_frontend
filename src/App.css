@@ -170,16 +170,16 @@ body, #root {
 }
 
 .profile-container {
-  margin-top: 10em;
+  margin-top: 4em;
   margin-left: 35em;
-  padding-left: 3.5em;
+  padding-left: 2.5em;
   padding-bottom: 24em;
   color: white;
   text-align: left;
   border: solid;
   box-sizing: border-box;
   width: 23em;
-  height: 23em;
+  height: 33em;
 }
 
 .edit-container {

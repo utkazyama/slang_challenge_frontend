@@ -38,10 +38,10 @@ export default class Home extends Component {
       <div className="list-of-slangs">
         <h1 className="slang-list-title">All Slangs</h1>
          {this.state.slangs.map(slang =>
-           <div className="slang-list-container">
+           <div className="slang-list-container" key={slang.id}>
               {this.props.user.id === slang.user_id ?
              <div className="slang-element">
-                <li key={slang.id} id={slang.id} style={{color: 'red', 'font-weight': 'bold'}}>{slang.phrase}: {slang.acronym}
+                <li key={slang.id} id={slang.id} style={{color: 'red', 'fontWeight': 'bold'}}>{slang.phrase}: {slang.acronym}
                     {this.props.user.id === slang.user_id ?
                     <div className="btn-container">
                     <button className="edit-btn" onClick={(e) => this.handleEdit(e, slang.id)}>✏</button>

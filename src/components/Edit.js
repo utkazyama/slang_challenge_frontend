@@ -93,7 +93,7 @@ class Edit extends React.Component{
               <option value="time">Time Deduction</option>
               <option value="decScore">Score Deduction</option>
               <option value="pikachu">Disturbing Image</option>
-              <option selected value="null">none</option>
+              <option defaultValue="null">none</option>
             </select>
          </div>
          <br />

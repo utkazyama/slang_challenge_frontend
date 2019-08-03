@@ -46,7 +46,9 @@ class App extends React.Component {
             <Route exact path='/edit' render={(routeProps)=> {
             return(< Edit {...routeProps} user={this.state.user} />)
           }} />
-          <Route exact path='/gameboard' component={GameBoard} />
+          <Route exact path='/gameboard' render={(routeProps)=> {
+            return(< GameBoard {...routeProps} user={this.state.user} />)
+          }} />
         </React.Fragment>
       </Router>
       </div>

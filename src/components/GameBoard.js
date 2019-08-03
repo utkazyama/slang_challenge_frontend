@@ -276,6 +276,11 @@ handleBackground = () => {
   const background = document.querySelector('.App');
   background.style.backgroundImage = "url('https://wallpapercave.com/wp/wp1979062.jpg')";
   this.handleVictorySound();
+  if (this.state.timer > 0){
+  this.setState({
+      timer: 0
+    })
+  }
 }
 
 handleClickSound = () => {
@@ -311,6 +316,7 @@ handleVictorySound = () => {
           <div>
          {this.state.timer <= 0 || this.state.answered === 8 ?
            < FinishPage
+           user={this.props.user}
            answered={this.state.answered}
            missCount={this.state.missCount}
            hintCount={this.state.hintCount}

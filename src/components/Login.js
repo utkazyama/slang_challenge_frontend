@@ -29,7 +29,11 @@ export default class Login extends React.Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: this.state.username
+        name: this.state.username,
+        total_score: 0,
+        total_game_played: 0,
+        accuracy_rate: 0,
+        img_url: "https://www.shareicon.net/download/2015/08/14/84875_add_512x512.png"
       })
     }
     fetch(USERS_DEV, reqObj)
