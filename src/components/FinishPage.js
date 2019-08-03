@@ -21,11 +21,12 @@ export default class FinishPage extends Component {
 
   // handleAccuracy = () => {
   //   const ar = this.handlePecentage();
-  //   const total_ar = ((this.state.original_accuracy_rate + ar)/(this.state.original_total_game_played + 1));
-  //   return total_ar.toFixed(2);
+  //   const total_ar = ((this.state.original_accuracy_rate + ar)/(2));
+  //   return total_ar
   // }
 
-  // handleScoreUpdate = () => {
+  // handleScoreUpdate = (e) => {
+  //   if (this.state.modified === false){
   //   const newAr = this.handleAccuracy();
   //   const reqObj = {
   //     method: 'PATCH',
@@ -40,13 +41,9 @@ export default class FinishPage extends Component {
   //   }
   //   fetch(`${USERS_DEV}/${this.props.user.id}`, reqObj)
   //   .then(resp => resp.json())
-  //   .then(data => console.log(data))
-  //   this.setState({
-  //     orginal_total_score: this.state.orginal_total_score + this.props.score,
-  //     original_total_game_played: this.state.original_total_game_played + 1,
-  //     original_accuracy_rate: newAr,
-  //     modified: !this.state.modified
-  //   });
+  //   .then(data => alert("Logout to update Score"))
+  //   }
+  //   e.target.remove();
   // }
 
   render() {

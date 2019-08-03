@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Profile from './components/Profile';
 import GameBoard from './components/GameBoard';
 import Edit from './components/Edit.js';
+import FinishPage from './components/FinishPage.js';
 
 
 import './App.css';
@@ -49,6 +50,9 @@ class App extends React.Component {
           <Route exact path='/gameboard' render={(routeProps)=> {
             return(< GameBoard {...routeProps} user={this.state.user} />)
           }} />
+          {/* <Route exact path='/finishpage' render={(routeProps)=> {
+            return(< FinishPage {...routeProps} user={this.state.user} />)
+          }} /> */}
         </React.Fragment>
       </Router>
       </div>
