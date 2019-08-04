@@ -27,26 +27,20 @@ export default class FinishPage extends Component {
 
   handleScoreUpdate = (e) => {
     const newAr = this.handleAccuracy();
-    console.log("newAr", newAr)
     const reqObj = {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-       total_score: parseInt(this.state.orginal_total_score) + parseInt(this.props.score),
-       total_game_played: parseInt(this.state.original_total_game_played) + 1,
+       total_score: this.props.user.total_score === null ? this.props.score : parseInt(this.props.user.total_score) + this.props.score,
+       total_game_played: this.state.original_total_game_played === null ? 1 : parseInt(this.state.original_total_game_played) + 1,
        accuracy_rate: newAr
       })
     }
     fetch(`${USERS_DEV}/${this.props.user.id}`, reqObj)
     .then(resp => resp.json())
     .then(data => data)
-    // this.setState({
-    //   orginal_total_score: parseInt(this.state.orginal_total_score) + parseInt(this.props.score),
-    //   original_total_game_played: parseInt(this.state.original_total_game_played) + 1,
-    //   original_accuracy_rate: newAr
-    // })
     e.target.remove();
   }
 
