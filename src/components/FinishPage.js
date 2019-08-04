@@ -3,15 +3,14 @@ const USERS_DEV = 'http://localhost:3001/users';
 
 
 export default class FinishPage extends Component {
-  // constructor(props){
-  //   super(props);
-  //   this.state = {
-  //     orginal_total_score: this.props.user.total_score,
-  //     original_total_game_played: this.props.user.total_game_played,
-  //     original_accuracy_rate: this.props.user.accuracy_rate,
-  //     modified: false
-  //   }
-  // }
+  constructor(props){
+    super(props);
+    this.state = {
+      orginal_total_score: this.props.user.total_score,
+      original_total_game_played: this.props.user.total_game_played,
+      original_accuracy_rate: this.props.user.accuracy_rate
+    }
+  }
 
   handlePecentage = () => {
     const correctAnswer = this.props.answered;
@@ -19,32 +18,37 @@ export default class FinishPage extends Component {
     return percentage.toFixed(2);
   }
 
-  // handleAccuracy = () => {
-  //   const ar = this.handlePecentage();
-  //   const total_ar = ((this.state.original_accuracy_rate + ar)/(2));
-  //   return total_ar
-  // }
+  handleAccuracy = () => {
+    const ar = parseInt(this.handlePecentage());
+    const orAcR = this.state.original_accuracy_rate !== null ? parseInt(this.state.original_accuracy_rate) : 0
+    const total_ar = orAcR === 0 ? ar : (orAcR + ar)/2;
+    return total_ar
+  }
 
-  // handleScoreUpdate = (e) => {
-  //   if (this.state.modified === false){
-  //   const newAr = this.handleAccuracy();
-  //   const reqObj = {
-  //     method: 'PATCH',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //      total_score: this.state.orginal_total_score + this.props.score,
-  //      total_game_played: this.state.original_total_game_played + 1,
-  //      accuracy_rate: newAr
-  //     })
-  //   }
-  //   fetch(`${USERS_DEV}/${this.props.user.id}`, reqObj)
-  //   .then(resp => resp.json())
-  //   .then(data => alert("Logout to update Score"))
-  //   }
-  //   e.target.remove();
-  // }
+  handleScoreUpdate = (e) => {
+    const newAr = this.handleAccuracy();
+    console.log("newAr", newAr)
+    const reqObj = {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+       total_score: parseInt(this.state.orginal_total_score) + parseInt(this.props.score),
+       total_game_played: parseInt(this.state.original_total_game_played) + 1,
+       accuracy_rate: newAr
+      })
+    }
+    fetch(`${USERS_DEV}/${this.props.user.id}`, reqObj)
+    .then(resp => resp.json())
+    .then(data => data)
+    // this.setState({
+    //   orginal_total_score: parseInt(this.state.orginal_total_score) + parseInt(this.props.score),
+    //   original_total_game_played: parseInt(this.state.original_total_game_played) + 1,
+    //   original_accuracy_rate: newAr
+    // })
+    e.target.remove();
+  }
 
   render() {
     return (
@@ -66,9 +70,7 @@ export default class FinishPage extends Component {
           <div className="AR-container">
             <h1>Accuracy <div className="rate">{this.handlePecentage()}%</div></h1>
           </div>
-          {/* {this.state.modified ? null :
-          <button onClick={(e) => {this.handleScoreUpdate(e)}}>Submit Score</button>
-          } */}
+          <button className="score-btn" onClick={(e) => {this.handleScoreUpdate(e)}}>Submit Score</button>
         </div>
 
       </div>
