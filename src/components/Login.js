@@ -5,7 +5,6 @@ import logo from '../slang_challenge_logo.png';
 const USERS = 'https://slang-challenge-backend.herokuapp.com/users';
 const USERS_DEV = 'http://localhost:3001/users';
 
-
 export default class Login extends React.Component {
   constructor(props){
     super(props)

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import AcronymCard from './AcronymCard.js'
-import FinishPage from './FinishPage.js'
+import AcronymCard from './AcronymCard.js';
+import FinishPage from './FinishPage.js';
 import Card from './Card.js';
 import StartGame from './StartGame.js';
 import playGame from '../theme2.mp3';
@@ -12,7 +12,6 @@ import victory from '../victory.mp3';
 // Total Score, Total Accuracy Rate, Total Game played
 
 {/* <img src='https://i.imgur.com/VajXFPa.gif' /> pikachu */}
-
 
 const API = 'https://slang-challenge-backend.herokuapp.com/cards';
 const API_DEV = 'http://localhost:3001/cards';
@@ -81,7 +80,7 @@ class GameBoard extends Component {
         selected: selectedId,
         initial: initial
       })
-    }else if (this.state.selected === selectedId){
+    } else if (this.state.selected === selectedId){
       let currentScore = this.state.score
       this.setState({
         selected: [],
@@ -91,7 +90,7 @@ class GameBoard extends Component {
       })
       this.changeOpacity(targetEl);
       this.handleBreakSound();
-    }else if(this.state.selected !== selectedId){
+    } else if(this.state.selected !== selectedId){
       let currentScore = this.state.score
       this.setState({
         score: currentScore - 20,

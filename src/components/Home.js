@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 const CARDS_API = 'https://slang-challenge-backend.herokuapp.com/cards';
 const CARDS_API_DEV = 'http://localhost:3001/cards';
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { tsPropertySignature } from '@babel/types';
 
-
 const CARDS = 'https://slang-challenge-backend.herokuapp.com/cards';
 const CARDS_DEV = 'http://localhost:3001/cards';
 
@@ -61,9 +60,6 @@ class Profile extends React.Component{
     .then(data => this.props.history.push('/home'))
     alert("Successfuly Created New Slang")
   }
-
-
-
 
   render(){
     return (

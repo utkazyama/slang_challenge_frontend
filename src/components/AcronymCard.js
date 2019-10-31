@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 
 class AcronymCard extends Component {
 
-
-
   render(){
     return (
       <div id= {this.props.slang.id} className="card" onClick={(e) => this.props.handleColor(e)} >

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 
-
 export default class StartGame extends Component {
   render() {
     return (
@@ -16,7 +15,7 @@ export default class StartGame extends Component {
                 <br/>
               <p>🔔: Click to receive a hint. You will get a random penalty.</p>
                 <br/>
-              <p>↩: Back to display phrases.</p>
+              <p>↩ : Back to display phrases.</p>
             <br/>
             <br/>
                 <button

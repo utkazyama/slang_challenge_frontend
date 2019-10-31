@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 const USERS_DEV = 'http://localhost:3001/users';
 
-
 export default class FinishPage extends Component {
   constructor(props){
     super(props);

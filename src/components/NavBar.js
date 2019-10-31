@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../slang_challenge_logo.png';
 
-
 const NavBar = (props) => {
   const displays = props.user.name ? {display: 'block'} : {display: 'none'}
  return (
