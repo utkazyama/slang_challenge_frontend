@@ -8,6 +8,9 @@ A user has to choose the right pair of cards to earn points.
 When the right pair is selected, the cards will be removed from the screen. 
 There is a time limitation which challenges the user to try harder, making the game more fun and effective.
 
+## Slang-Challenge Backend Link
+https://github.com/utkazyama/slang_challenge_backend
+
 ## Login
 <img src="/src/readmeImgs/slangLogin.png" alt="scrapbook images" width="600px" height="auto">
 
