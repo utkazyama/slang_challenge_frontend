@@ -13,7 +13,7 @@ import victory from '../victory.mp3';
 
 {/* <img src='https://i.imgur.com/VajXFPa.gif' /> pikachu */}
 
-const API = 'https://slang-challenge-backend.herokuapp.com/cards';
+// const API = 'https://slang-challenge-backend.herokuapp.com/cards';
 const API_DEV = 'http://localhost:3001/cards';
 
 class GameBoard extends Component {
@@ -24,8 +24,8 @@ class GameBoard extends Component {
       slangs: [],
       selected: [],
       score: 0,
-      timer: 45,
-      prevTimer: 45,
+      timer: 60,
+      prevTimer: 60,
       initial: [],
       gameStarted: false,
       shuffledPh: false,
