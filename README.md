@@ -8,6 +8,14 @@ A user has to choose the right pair of cards to earn points.
 When the right pair is selected, the cards will be removed from the screen. 
 There is a time limitation which challenges the user to try harder, making the game more fun and effective.
 
+# Guide
+- After finished to follow the guide from Backend, follow this guide.
+1. Go to the directory where you want to clone the repository.
+2. Enter "git clone https://github.com/utkazyama/slang_challenge_frontend.git"
+3. then enter "cd slang_challenge_frontend" to move the directory.
+4. Enter "npm install" to install the required package to run the application.
+5. Enter "npm start" to run the application. (slang_challenge_backend server has to be running.)
+
 ## Slang-Challenge Backend Link
 https://github.com/utkazyama/slang_challenge_backend
 
